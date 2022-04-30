@@ -13,3 +13,11 @@ Link: https://www.sciencedirect.com/science/article/pii/S0262885622000300
 * Feature Pyramid Network: integrates high-level semantic information and low-level localisation information
 * Deformable Convolutional Network: deformable convolution (operates on irregular regions) and deformable RoI pooling (non-constant position mapping). Can improve ability to localise non-grid objects.
 * Swin Transformer: computes self-attention within a local window and constructs a hierarchical feature representation by merging adjacent patches in deep
+
+## Nucleus segmentation: towards automated solutions
+Link: https://www.sciencedirect.com/science/article/pii/S0962892421002518
+1. The U-Net is incorporated in Cellpose and StarDist, and extended in nnU-Net and U-Net++
+2. The U-Net can perform instance segmentation with another post-processing
+3. nucleAIzer uses Mask R-CNN
+4. MultiStar and SplineDist extend U-Net based StarDist to enable segmentation of overlapping objects
+5. NuSeT combines regional proposal network, U-Net and watershed post-processing to segment crowded cells
