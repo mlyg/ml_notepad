@@ -8,3 +8,6 @@ Notes on machine learning books and topics
 
 ## Topics
 1. Instance segmentation
+
+## Courses
+1. An Introduction to the Imperative Part of C++ (Imperial College London)
