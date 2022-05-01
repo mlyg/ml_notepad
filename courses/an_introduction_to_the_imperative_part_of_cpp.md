@@ -24,4 +24,11 @@
 6. The operator "&&" has a higher precedence than the operator "||"
 
 ## Lecture 3
-1. 
+1. A function has to be declared in a function declaration at the top of the program
+2. **Function declarations** specify which type the function returns
+3. While **value parameters** are safe, **reference parameters** are specified with "&" postfix to the type and alters the parameters
+4. **Polymorphism**: more than one function can have the same name, distinguished by the typing or number of parameters
+5. **Overloading**: refers to using the same function name more than once
+6. The **header file** contains the function declarations (.h) while the **implementation file** contains the function definition (.cpp)
+7. The usual convention is to delimit user-defined library file names with double quotation marks
+8. In header files we put **#ifndef** X and **#define** X file identifiers so that the preprocessor only works through the code once even if the file is referenced multiple times
