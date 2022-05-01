@@ -50,3 +50,12 @@ Link: https://arxiv.org/abs/1912.04488
 5. CNNs can implicitly learn the absolute position information from zero-padded operation, but this implicitly learned position information is coarse and inaccurate
 6. **CoordConvs** involves an additional two channels that contain the x and y coordinates to give spatial variance
 7. **Decoupled SOLO** is an efficient and equivalent variant in accuracy of SOLO
+
+## SOLOv2: Dynamic and Fast Instance Segmentation
+Link: https://arxiv.org/abs/2003.10152
+1. **SOLO is limited by three bottlenecks:**
+* inefficient mask representation and learning
+* not high enough resolution for finer mask prediction
+* slow mask NMS
+2. Uses dynamic instance segmentation: rather than generating one instance mask with SxS channels, generates **Mask Kernel G** and **Mask Feature F** which are decoupled and separately predicted
+3. Uses **Matrix NMS** rather than traditional NMS which is 9x faster
