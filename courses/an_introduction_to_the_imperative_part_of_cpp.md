@@ -1,7 +1,7 @@
 # An Introduction to the Imperative Part of C++
 
 ## Lecture 1
-1.** Declarative programming**: what to do, not how to do it - higher level of abstraction
+1. ** Declarative programming**: what to do, not how to do it - higher level of abstraction
 2. **Imperative programming**: how to do it, not what to do - lower level of abstraction
 3. **Functional programming**: subset of declarative programming, that uses subroutines that return a value, and cause minimal side effects
 4. **Procedural programming**: subset of imperative programming, that uses subroutines that do not return values, causing side effects
