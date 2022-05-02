@@ -48,7 +48,7 @@
 * classes have identical covariance matrices
 * training examples are statistically independent of one another
 10. **LDA steps:**
-* **Standardise** the dataset (d0dimensions)
+* **Standardise** the dataset (d-dimensions)
 * For each class, compute the **d-dimensional mean vector**
 * Create the **between-class scatter matrix** Sb, and **within-class scatter matrix** Sw
 * Compute the eigenvectors and eigenvalues of the matrix Sw^-1 Sb
@@ -61,3 +61,23 @@
 14. **t-distributed stochastic neighbour embedding** (t-SNE): embeds data points into a lower dimensional space such that the pairwise distances in the original dimensional space are preserved
 15. The t-SNE embedding should be **initialised with PCA**
 16. **Uniform manifold approximation and projection** (UMAP) is typically faster than t-SNE, and can be used to project new data unlike t-SNE
+
+## Chapter 6
+1. scikit-learn **make_pipeline** function takes an arbitrary number of scikit-learn **transformers** (objects that has fit and transform methods), followed by a scikit-learn **estimator** (object that has fit and predict methods)
+2. A good standard value for k in k-fold cross-validation is **10**
+3. **Higher values of k** results in **lower pessimistic bias** towards estimating generalisation performance, but will **increase runtime** and yield **higher variance** estimates
+4. **Stratified k-fold cross-validation** can yield better bias and variance estimates especially when there are unequal class proportions, by preserving class label proportions in each fold
+5. **High bias** is where the model has both **low training and cross-validation accuracy** -> can be addressed by increasing model parameters or decreasing degree of regularisation
+6. **High variance** is where there is a **large gap between training and cross-validation accuracy** -> can be addressed by reducing model parameters or increasing degree of regularisation
+7. **plt.fill_between** can be used to show error
+8. **Grid search** performs a brute-force exhaustic search 
+9. **Randomised search** can find more optimal hyperparameters than grid search
+10. **Halving random/grid search** can be a more efficient method for searching hyperparameters
+11. **Tree-structured Parzen Estimators (TPE)** is a Bayesian optimisation method based on probabilistic model that uses past hyperparameter evaluations to find better hyperparameter configurations
+12. **Nested cross-validation** is useful when evaluating different algorithms: outer k-fold cross-validation loop splits data into training and test folds, and the inner loop is used to select the model using k-fold cross-validadtion on the training fold
+13. **Matthews correlation coefficient (MCC)** ranges between -1 and 1, and takes all elements of a confusion matrix into account (including TN which F1 does not account for)
+14. **For multiclass problems**
+* **Micro-average** is calculated from individual TPs, TNs, FPs and FNs: useful to weight each prediction equally
+* **Macro-average** is calculated as the average scores of different systems: weights all classes equally
+15. **Weighted macro-average** which weights score of each class label by number of true instances is used as a default in scikit-learn
+16. **Synthetic Minority Over-sampling Technique (SMOTE)**: a way of dealing with class imbalance by generating synthetic training examples
