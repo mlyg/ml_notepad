@@ -1,7 +1,7 @@
 # An Introduction to the Imperative Part of C++
 
 ## Lecture 1
-1. ** Declarative programming**: what to do, not how to do it - higher level of abstraction
+1. **Declarative programming**: what to do, not how to do it - higher level of abstraction
 2. **Imperative programming**: how to do it, not what to do - lower level of abstraction
 3. **Functional programming**: subset of declarative programming, that uses subroutines that return a value, and cause minimal side effects
 4. **Procedural programming**: subset of imperative programming, that uses subroutines that do not return values, causing side effects
@@ -36,7 +36,7 @@
 ## Lecture 4
 1. **Stream**: channel or conduit on which data is passed from senders to receivers. Data can be sent out from the program on an output stream, or received into the program on an input stream
 2. Data elements must be sent to or received from a stream one at a time, i.e. in **serial fashion**
-3. "ifstream" (input-file-stream), while "ofstream" (output-file-stream)
+3. "**ifstream**" (input-file-stream), while "**ofstream**" (output-file-stream)
 4. '**.open()**' is used for connecting stream to files, '.close()' disconnects stream, and adds end-of-file marker
 5. '**.fail()**' returns True if the previous stream operation was not successful
 6. '**.get()**' extracts/reads single characters
