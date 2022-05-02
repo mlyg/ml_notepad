@@ -81,3 +81,20 @@ Link: https://www.biorxiv.org/content/10.1101/2021.11.03.467199v3
 * Gradient has **unit magnitude** making it more numerically stable
 * Distance field is independent of morphology and topology
 * Flow field points uniformly from cell boundaries towards cell centre, coinciding with the **medial axis**, allowing pixels to remain spatially clustered after Euler integration, which addresses the issue of oversegmentation in Cellpose
+
+## Transformers in Medical Imaging: A Survey
+Link: https://arxiv.org/abs/2201.09873
+1. Convolutions operate locally and provide translational equivariance
+2. Transformers efficiently encode long-range dependencies
+
+## Boundary-aware Transformers for Skin Lesion Segmentation
+Link: https://arxiv.org/abs/2110.03864
+
+## GT U-Net: A U-Net Like Group Transformer Network for Tooth Root Segmentation
+Link: https://arxiv.org/abs/2109.14813
+
+## A Multi-Branch Hybrid Transformer Networkfor Corneal Endothelial Cell Segmentation
+Link: https://arxiv.org/abs/2106.07557
+
+## COTR: Convolution in Transformer Network for End to End Polyp Detection
+Link: https://arxiv.org/abs/2105.10925
