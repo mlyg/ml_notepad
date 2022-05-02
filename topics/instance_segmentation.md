@@ -89,12 +89,22 @@ Link: https://arxiv.org/abs/2201.09873
 
 ## Boundary-aware Transformers for Skin Lesion Segmentation
 Link: https://arxiv.org/abs/2110.03864
+1. Boundary points set is produced using a conventional edge detection algorithm
+2. For each point, a circle is drawn with radius (set to 10 as default) and the proportion p of the lesion area in the circle is calculated
+3. Larger or smaller proportions indicate that the boundary is not smooth
+4. NMS is used to filter points with larger proportion than neighbour k points
+5. Filtered points are mapped to patch labels and locations are set to 1 and others set to 0
 
 ## GT U-Net: A U-Net Like Group Transformer Network for Tooth Root Segmentation
 Link: https://arxiv.org/abs/2109.14813
+1. Fourier Descriptor is a quantitative representation of closed shapes independent of their starting point, scaling, location, and rotation
+2. Fourier Descriptor (FD) loss function is shape-sensitive and makes use of shape prior knowledge
 
-## A Multi-Branch Hybrid Transformer Networkfor Corneal Endothelial Cell Segmentation
+## A Multi-Branch Hybrid Transformer Network for Corneal Endothelial Cell Segmentation
 Link: https://arxiv.org/abs/2106.07557
+1. Gets edge map ground truth using canny operator
+2. Generates complementary 'body' map by inverting the ground truth and applying a Gaussian blur
 
 ## COTR: Convolution in Transformer Network for End to End Polyp Detection
 Link: https://arxiv.org/abs/2105.10925
+1. Uses bipartite matching loss to search an optimal bipartite matching between predictions with a fixed size of N and ground truth objects 
