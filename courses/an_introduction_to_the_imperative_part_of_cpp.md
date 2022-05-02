@@ -32,3 +32,16 @@
 6. The **header file** contains the function declarations (.h) while the **implementation file** contains the function definition (.cpp)
 7. The usual convention is to delimit user-defined library file names with double quotation marks
 8. In header files we put **#ifndef** X and **#define** X file identifiers so that the preprocessor only works through the code once even if the file is referenced multiple times
+
+## Lecture 4
+1. **Stream**: channel or conduit on which data is passed from senders to receivers. Data can be sent out from the program on an output stream, or received into the program on an input stream
+2. Data elements must be sent to or received from a stream one at a time, i.e. in **serial fashion**
+3. "ifstream" (input-file-stream), while "ofstream" (output-file-stream)
+4. '**.open()**' is used for connecting stream to files, '.close()' disconnects stream, and adds end-of-file marker
+5. '**.fail()**' returns True if the previous stream operation was not successful
+6. '**.get()**' extracts/reads single characters
+7. '**.put()**' writes/inputs single characters
+8. '**.putback()**' attempts to decrease the current location in the stream by one character, making the last character extracted from the stream once again available to be extracted by input operations
+9. '**.eof()**' initially set to False, but if the ifstream is positioned at the end of the file, '.get' will set the '.eof()' to True
+10. Streams can be arguments to functions, but must be **reference parameters** (not value parameters)
+11. **'>>'** and **'<<'** stream operators can deal with sequences of characters 
