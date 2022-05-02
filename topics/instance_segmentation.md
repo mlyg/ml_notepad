@@ -59,3 +59,25 @@ Link: https://arxiv.org/abs/2003.10152
 * slow mask NMS
 2. Uses dynamic instance segmentation: rather than generating one instance mask with SxS channels, generates **Mask Kernel G** and **Mask Feature F** which are decoupled and separately predicted
 3. Uses **Matrix NMS** rather than traditional NMS which is 9x faster
+
+## K-Net: Towards Unified Image Segmentation
+Link: https://arxiv.org/abs/2106.14855
+1. Unifies semantic, instance and pan-optic segmentation
+2. Uses a set of kernels to assign each pixel to either a potential instance or semantic class
+3. Uses bipartite matching strategy to assign learning targets for each kernel, building a one-to-one mapping between kernels and instances of an image
+4. Box-free and NMS-free
+
+## Cellpose: a generalist algorithm for cellular segmentation
+Link: https://www.nature.com/articles/s41592-020-01018-x
+1. Generate topological maps using simulated diffusion
+2. Neural network then trained to predict horizontal and vertical gradients, as well as binary map 
+3. Horizontal and vertical gradients form vector fields, where gradient tracking is used to assign cells
+4. Global average pooling on smallest convolutional map to get 'style' of image
+
+## Omnipose: a high-precision morphology-independent solution for bacterial cell segmentation
+Link: https://www.biorxiv.org/content/10.1101/2021.11.03.467199v3
+1. Uses distance field to define a new flow field within Cellpose framework
+2. Distance field defined by the eikonal equation which has benefits:
+* Gradient has unit magnitude making it more numerically stable
+* Distance field is independent of morphology and topology
+* Flow field points uniformly from cell boundaries towards cell centre, coinciding with the medial axis, allowing pixels to remain spatially clustered after Euler integration, which addresses the issue of oversegmentation in Cellpose
