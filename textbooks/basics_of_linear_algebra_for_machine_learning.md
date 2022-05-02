@@ -62,3 +62,22 @@
 * More than **twice as efficient as LU**
 * Import as: **from numpy.linalg import cholesky**
 * Function only returns L (can get L^T easily)
+
+## Chapter 15
+1. **Eigendecomposition** refers to decomposing a square matrix into eigenvectors and eigenvalues
+2. Either **Av = lv** or **A = QLQ^T**, where Q is a matrix of eigenvectors, L is the diagonal matrix of eigenvalues and Q^T is the transpose of the matrix of eigenvectors
+3. Eigenvectors have unit magnitude, and are typically the **right vectors** (column vector)
+4. Eigenvalues scale eigenvectors
+
+## Chapter 16
+1. All matrices have an **SVD**, but not all have an eigendecomposition
+2. For a real value matrix, A = U S V^T, where A is a **real nxm matrix**, U is a **mxm matrix**, S is a mxm **diagonal matrix** and V^T is an **nxn matrix**
+3. The diagonal values of the Sigma (S) matrix are the **singular values** of the original matrix
+4. The **columns** of U are the **left-singular** vectors of A
+5. The **columns** of V are the **right-singular** vectors of A
+6. SVD is used to get a **matrix inverse**, **decompressing data**, **least squares linear regression**, **image compression**, and **denoising data**
+7. With SVD using numpy, to reconstruct the matrix the s vector must be converted with diag(). However, this will return an mxm matrix, and if the original is mxn, you first need to create a zero mxn array, and then populate it with the diag(s)
+8. The **Moore-Penrose** (pseudoinverse) inverse generalises matrix inverse from square to rectangular matrices
+9. It is denoted as A+, and calculated by A+ = V D+ U^T, where D+ is the pseudoinverse of the diagonal matrix S, and V and U are from the SVD
+10. D+ can be calculated by creating a **diagonal matrix S**, calculating the **reciprocal** of all non-zero elements and then taking the **transpose** if the original matrix is rectangular
+11. SVD can perform **dimensionality reduction** by selecting the **top k largest singular values** in S (columns from S, and rows from V^T)
