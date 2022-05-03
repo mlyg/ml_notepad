@@ -49,3 +49,14 @@
 9. '**.eof()**' initially set to False, but if the ifstream is positioned at the end of the file, '.get' will set the '.eof()' to True
 10. Streams can be arguments to functions, but must be **reference parameters** (not value parameters)
 11. **'>>'** and **'<<'** stream operators can deal with sequences of characters 
+
+## Lecture 5
+1. C++ uses **enum** bool {false, true}; to define false as 0 and true as 1
+2. Any "for" loop can be **rewritten** as a "while" loop
+3. Any "while" loop can be **trivially re-written** as a "for" loop e.g. 'while (number <= 126)' can be rewritten as 'for ( ; number <= 126 ; )'
+4. **Do while** loop differs from for and while statements because the statement in the do braces will execute even if the statement is false
+5. Switch statements can be used when several options depend on the value of a single variable or expression
+6. A **switch** statement is written as switch (selector) {case label1 statement1 break;}. "default" is optional, 
+7. **Block**: compound statement containing one or more variable declarations
+8. Variables declared within the block have the block as their **scope**, they are created when the program enters the block, and destroyed when exiting the block
+9.  While in the block, the program will look first for the variable in the scope, before checking outer scopes
