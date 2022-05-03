@@ -81,3 +81,29 @@
 9. It is denoted as A+, and calculated by A+ = V D+ U^T, where D+ is the pseudoinverse of the diagonal matrix S, and V and U are from the SVD
 10. D+ can be calculated by creating a **diagonal matrix S**, calculating the **reciprocal** of all non-zero elements and then taking the **transpose** if the original matrix is rectangular
 11. SVD can perform **dimensionality reduction** by selecting the **top k largest singular values** in S (columns from S, and rows from V^T)
+
+## Chapter 17
+1. For the **variance**, the denominator subtracts 1 to **correct for the bias** (related to degrees of freedom)
+2. numpy.var() calculates population variance, must set **ddof=1** for the sample variance (where the denominator subtracts 1)
+3. numpy.std() calculates population standard deviation, and again must set ddof=1 for sample standard deviation
+4. **Covariance** measures the **joint probability of two random variables**, and is calculated as the expected value of the product of the differences of each random variable from their expected values
+5. **Covariance sign** shows whether two variables increase together (positive) or decrease together (negative). Covariance of zero means variables are **independent**. The **magnitude is not easily interpreted**
+6. **Pearson correlation coefficient**: covariance **normalised** by dividing by the product of standard deviations, giving score between -1 and 1
+7. The **covariance** matrix is **square** and **symmetrical**, where the diagonal of the covariance matrix are the variances of the random variables
+8. **numpy.cov()** requires the data to be in the format where the **features are columns**
+
+## Chapter 18
+1. PCA is a **projection method** where data with m-columns (features) is projected into a subspace with m or fewer columns
+2. The covariance method of calculating PCA involves **standardising** the data, getting the **covariance matrix**, performing **eigendecomposition** on the covariance matrix and then sorting the top k eigenvalues to get a matrix containing the **top k eigenvectors**
+
+## Chapter 19
+1. **Linear regression** models the relationship between two scalar values, assuming y is a linear combination of the input variable x
+2. The objective of creating a linear regression model is to find values for the coefficient values (b) that minimise the error in prediction of the output variable y
+3. **Linear least squares** involves finding the line that **minimises the squared error**
+4. The regression problem can be solved directly by **matrix inverse**, using the **normal equation**: b = (X^T X)^-1 X^T y
+5. However, matrix inverse is both computationally expensive and numerically unstable
+6. The **QR decomposition** is a popular method to solve linear least squares equation: b = R^-1 Q^T y
+7. There is still matrix inversion, but on the simpler R matrix
+8. While more numerically stable and computationally efficient, it does not work for all matrices
+9. **SVD** is the more stable and preferred approach: b = X+ y where X+ = U D+ V^T
+10. Numpy provides the l**stsq()** function which uses the **SVD** approach
