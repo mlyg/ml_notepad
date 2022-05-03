@@ -81,3 +81,21 @@
 * **Macro-average** is calculated as the average scores of different systems: weights all classes equally
 15. **Weighted macro-average** which weights score of each class label by number of true instances is used as a default in scikit-learn
 16. **Synthetic Minority Over-sampling Technique (SMOTE)**: a way of dealing with class imbalance by generating synthetic training examples
+
+## Chapter 7
+1. **Plurality voting:** the generalisation of majority voting principle to multiclass settings
+2. Ensembling improves performance if the classifiers have equal error rates and are independent, and as long as the base classifiers perform better than random guessing
+3. **Bagging**: bootstrap samples are used to train individual classifiers
+4. Random forests are a special case of bagging where random feature subets are used when fitting individual decision trees
+5. **Bagging** can **reduce variance** but **not reduce bias**, which is why unprunced decision trees which have low bias are often used
+6. **Boosting** involves ensembling weak learners, focusing on training examples that are hard to classify
+7. **Original boosting algorithm:**
+* Draw a random sample of training examples, d1, **without replacement** from the training dataset, to train a weak learner C1
+* Draw a second random training subset, d2, without replacement from the training dataset and add 50% of the misclassified examples to train a weak learner C2
+* Find training examples d3 in the training set which C1 and C2 disagree on to train a third weak learner C3
+* Combine weak learners C1, C2 and C3 by majority voting
+8. **Boosting** can lead to a **reduction in both bias and variance**, but are known for their high variance
+9. **AdaBoost** is slightly different from the original boosting algorithm by using the complete dataset to train weak learners, and instead weighting training examples to focus on misclassified examples
+10. **Gradient boosting**: iteratively fits decision trees using prediction errors
+11. Gradient boosting trees are typically deeper than AdaBoost, and use the prediction error directly to form a target variable for fitting the next tere (rather than assigning sample weights)
+12. Gradient boosting involves calculating **pseudo-residuals**, and fitting subsequent trees to minimise the pseudo-residuals
