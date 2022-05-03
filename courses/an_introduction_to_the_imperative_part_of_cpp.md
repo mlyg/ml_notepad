@@ -27,11 +27,15 @@
 1. A function has to be declared in a function declaration at the top of the program
 2. **Function declarations** specify which type the function returns
 3. While **value parameters** are safe, **reference parameters** are specified with "&" postfix to the type and alters the parameters
-4. **Polymorphism**: more than one function can have the same name, distinguished by the typing or number of parameters
-5. **Overloading**: refers to using the same function name more than once
-6. The **header file** contains the function declarations (.h) while the **implementation file** contains the function definition (.cpp)
-7. The usual convention is to delimit user-defined library file names with double quotation marks
-8. In header files we put **#ifndef** X and **#define** X file identifiers so that the preprocessor only works through the code once even if the file is referenced multiple times
+4. **Passing by reference is useful:**
+* Only way to **modify** the **local variables** of a function
+* Passing **large-sized arguments**, since it will just pass the address of the argument and not the argument itself
+5. The key differences between **pass by reference** and **pass by pointer** is that a **pointer** can store the **address** of any variable to a location in the memory. It is also possible to not initialise a pointer and instead assign it to null. Reference, on the other hand, always references a variable and shares a memory location with it. Changing the original variable also changes the reference variable.
+6. **Polymorphism**: more than one function can have the same name, distinguished by the typing or number of parameters
+7. **Overloading**: refers to using the same function name more than once
+8. The **header file** contains the function declarations (.h) while the **implementation file** contains the function definition (.cpp)
+9. The usual convention is to delimit user-defined library file names with double quotation marks
+10. In header files we put **#ifndef** X and **#define** X file identifiers so that the preprocessor only works through the code once even if the file is referenced multiple times
 
 ## Lecture 4
 1. **Stream**: channel or conduit on which data is passed from senders to receivers. Data can be sent out from the program on an output stream, or received into the program on an input stream
