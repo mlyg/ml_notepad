@@ -108,3 +108,12 @@ Link: https://arxiv.org/abs/2106.07557
 ## COTR: Convolution in Transformer Network for End to End Polyp Detection
 Link: https://arxiv.org/abs/2105.10925
 1. Uses bipartite matching loss to search an optimal bipartite matching between predictions with a fixed size of N and ground truth objects 
+
+## Dynamic convolution: Attention over convolution kernels
+Link: https://arxiv.org/abs/1912.03458
+1. Traditional approaches of convolutions use static convolutional kernels but dynamic network architecture (layers, channels etc)
+2. **Dynamic convolutions** instead use dynamic convolutional kernels and static network architecture
+3. Instead of one convolutional kernel per layer, dynamic convolutions use **K parallel convolutional kernels** that are aggregated
+4. The aggregation of parallel convolution kernels makes output channels shared, with no effect on network width or depth
+5. The **squeeze-and-excite** method is used to compute attention
+6. Optimising dynamic convolutional kernels is difficult
