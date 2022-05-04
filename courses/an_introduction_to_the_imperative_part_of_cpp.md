@@ -78,3 +78,17 @@
 * **strcat**(): concatenates the second string onto the first string
 11. There is a danger of range bound error with all the above functions
 12. Use **cin.getline**(a_string, max_length) to assign string variables (rather than using 'cin >>' which stops after empty spaces)
+
+## Lecture 7
+1. Pointers give programmers more control over the allocation/de-allocation of memory
+2. **Pointer**: memory address of a variable
+3. **Pointer variable**: variable which can store memory addresses
+4. Pointer variables are declared as type *variable
+5. * is known as the **dereference** operator ('the variable located at the address') and & is the **address-of operator** ('the address of the variable')
+6. Dynamic variables are created with 'new' and destroyed with 'delete'
+7. To safeguard against dangling pointers, we set the pointer = **NULL**
+8. Pointer arithmetic involves addition and subtraction, not multiplication or division
+9. Pointers can be used to create **dynamic** arrays
+10. To delete a dynamic array, we write: delete [] number_ptr;
+11. Declaring variables as **static** makes them remain in existence throughout the execution of the program
+12. **struct** is used to store together elements of different data types
