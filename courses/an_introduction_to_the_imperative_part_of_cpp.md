@@ -60,3 +60,21 @@
 7. **Block**: compound statement containing one or more variable declarations
 8. Variables declared within the block have the block as their **scope**, they are created when the program enters the block, and destroyed when exiting the block
 9.  While in the block, the program will look first for the variable in the scope, before checking outer scopes
+
+## Lecture 6
+1. The syntax for an array declaration is: "**component_type variable_identifier[integer value];**"
+2. **typedef** can be used to define a type e.g. particular array
+3. arrays allocate **consecutive memory** locations in the computer
+4. C++ does not do **range bound error** checking
+5. Arrays can be used as **parameters** in functions
+6. Array parameters are **reference** parameters meaning arrays can be changed when passed as arguments to functions
+7. The modifier "**const**" can be added to prevent changes to an array
+8. String values can only be stored in string variables whose length is at least 1 greater than the length (in characters) of the value, because an extra space is required to store the **sentinel string character '\0'** which marks the end of a string value
+9. Strings can be initialised without stating the maximum length of the array, as it will be automatically determined with the extra space to include the sentinel string character
+10. The library <**cstring**> contains important string functions: 
+* **strcpy**(to_string, from _string): copies content of one string into another
+* **strlen**(another_string): returns length of another_string without counting the sentinel character
+* **strcmp**(): returns false if both strings are the same
+* **strcat**(): concatenates the second string onto the first string
+11. There is a danger of range bound error with all the above functions
+12. Use **cin.getline**(a_string, max_length) to assign string variables (rather than using 'cin >>' which stops after empty spaces)
