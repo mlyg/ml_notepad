@@ -99,3 +99,23 @@
 10. **Gradient boosting**: iteratively fits decision trees using prediction errors
 11. Gradient boosting trees are typically deeper than AdaBoost, and use the prediction error directly to form a target variable for fitting the next tere (rather than assigning sample weights)
 12. Gradient boosting involves calculating **pseudo-residuals**, and fitting subsequent trees to minimise the pseudo-residuals
+
+## Chapter 8
+1. **Bag-of-words** model allows us to represent text as numerical feature vectors:
+* First a **vocabulary** of all the words from the set of documents is created
+* Each **document** is represented as a **feature vector** which contains the **word frequency** for each word in the vocabulary
+2. A bag is created using **CountVectorizer** from sklearn.feature_extraction.text 
+3. The values in the feature vectors are called raw term frequencies: tf(t, d) - the number of times a term t occurs in a document d
+4. The **order** of terms in a bag-of-words model **does not matter**
+5. Bag-of-words model is also called a 1-gram (unigram) model because each token in the vocabulary represents a single word - n-grams of size 3 or 4 appear to be better for spam-filtering
+6. **Term frequency-inverse document frequency** (tf-idf): downweights frequently occuring words, by multiplying tf(t,d) by idf(t,d), where idf(t,d) = log (nd/1+df(d,t))
+7. **Porter stemmer algorithm**: tokenises words by their stem
+8. **Stemming** can produce non-real words, while **lemmatisation** aims to obtain more grammatically correct form of indivdual words - however little difference in performance has been observed
+9. **Stop words** include 'is', 'and', 'has' which are frequent and do not contain useful information
+10. The 'liblinear' solver can perform better than 'lbfgs' for large datasets
+11. **Out-of-core learning**: memory efficient method involving mini-batching to train models
+12. **word2vec**: a more moden alternative to bag-of-words, which uses an unsupervised learning algorithm based on neural networks to learn the relationship between words, and can reproduce words using simple vector math
+13. **Topic modeling**: the task of assigning topics to unlabeled text documents
+14. **Latent Dirichlet allocation**: generative probabilistic model that tries to find groups of words that appear frequently together across documents
+* Input is a bag-of-words matrix, and **decomposes** this into a **document-to-topic** matrix and **word-to-topic** matrix
+15. The **number of topics** must be specified as a **hyperparameter** for LDA
