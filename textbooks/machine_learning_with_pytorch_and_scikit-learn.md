@@ -119,3 +119,27 @@
 14. **Latent Dirichlet allocation**: generative probabilistic model that tries to find groups of words that appear frequently together across documents
 * Input is a bag-of-words matrix, and **decomposes** this into a **document-to-topic** matrix and **word-to-topic** matrix
 15. The **number of topics** must be specified as a **hyperparameter** for LDA
+
+## Chapter 9
+1. Linear regression does **not** require the target variable to be normally distributed
+2. A **correlation matrix** is a standardised version of the covariance matrix, and contains the **Pearson product-moment correlation coefficient** (Pearson's r) which measures the linear dependence between pairs of features
+3. The **bias** variable is **0** if the features are **standardised**
+4. Scikit-learn linear regression works better with **unstandardised** variables
+5. **Random Sample Consensus (RANSAC) algorithm**: fits a robust regression model
+* Select a random number of examples to be inliers and fit the model
+* Test all other data points against fitted model and add those points that fall within a specific tolerance
+* Refit the model using all inliers
+* Estimate the error of the fitted model against the inliers
+* Terminate the algorithm if either the performance reaches a certain threshold or a fixed number of iterations reached
+6. By default, scikit-learn uses the **median absolute deviation (MAD)** estimate to select the inlier threshold
+7. By plotting **residuals**, we would expect them to be randomly scattered if there was additional information to be captured
+8. **Mean squared error** and **mean absolute error** are unbounded, and interpretation depends on dataset and feature scaling
+9. **Coefficient of determination (R^2)**: the standardised version of MSE, and is the fraction of response variance captured by the model, and is equal to: 1 - SSE/SST (SSE: sum of squared errors, SST: total sum of squares i.e. variance of target variable)
+10. **Ridge regression**: L2 regularisation where the sum of squared weights are added to MSE. The bias b is not regularised. 
+11. **LASSO**: L1 regularisation where sum of absolute weights are added to MSE. Can be used for feature selection, but it selects at most n features if m > n, where n is the number of training examples
+12. **Elastic net**: Both L1 and L2 regularisation
+13. **Polynomial regression**: includes polynomial terms to model non-linear relationships. Importantly, it still uses linear regression coefficients.
+14. There is a trade-off between complexity of the model (overfitting) and bias
+15. A **random forest** can be thought of as a **sum of piecewise linear functions** (in cotrast to global linear/polynomial regression)
+16. Decision trees analyse one feature at a time, and do not take weighted combinations, which explains why standardisation is not necessary
+17. For decision tree regression, the MSE is referred to as **within-node variance**, and therefore he splitting criterion is better known as **variance reduction**
