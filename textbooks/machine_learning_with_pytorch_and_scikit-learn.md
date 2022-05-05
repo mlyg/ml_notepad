@@ -143,3 +143,46 @@
 15. A **random forest** can be thought of as a **sum of piecewise linear functions** (in cotrast to global linear/polynomial regression)
 16. Decision trees analyse one feature at a time, and do not take weighted combinations, which explains why standardisation is not necessary
 17. For decision tree regression, the MSE is referred to as **within-node variance**, and therefore he splitting criterion is better known as **variance reduction**
+
+## Chapter 10
+1. **k-means clustering belongs to the category of prototype-based clustering**: each cluster is represented by a protoscopy, which is either the **centroid** (average) for continuous features or **medoid** (point that minimise distance to all other points of a cluster) for categorical features
+2. **k-means** is good for identifying **spherical** cluster shapes
+3. k-means requires that the **number of clusters** are **specified**, and one or more clusters can be empty
+4. **k-means algorithm:**
+* randomly pick k number of centroids from examples as initial cluster centres
+* assign each example to the nearest centroid
+* move centroid to centre of clusters
+* assign each example again to nearest centroid and repeat until either cluster assignments do not change, user-defined tolerance reached or maximum number of iterations reached
+5. The **Euclidean distance metric** is commonly used as the similarity metric, and can be solved by **minimising the within-cluster SSEs**, which is sometimes called cluster inertia
+6. Features should be scaled if the Euclidean distance metric is used
+7. **k-means++ algorithm**:
+* initialise an empty set M to store the k centroids being selected
+* randomly choose the first centroid and assign it to M
+* For each example not in M, find the minimum squared distance to any of the centroids in M
+* To randomly select the next centroid, use a weighted probability distribution favouring points further from centroids
+* Repeat until steps k centroids chosen
+8. k-means clustering is an example of **hard clustering**
+9. **Fuzzy C-means algorithm** is an example of soft clustering: it is similar to k-means but each point is assigned with a probability of belonging to each cluster
+10. There is an additional **fuzziness coefficient** (fuzzifier, m), which controls the degree of fuzziness. The larger the value of m, the smaller the cluster membership becomes
+11. The **within-cluster SSE (distortion)** is used to quantify the quality of clustering. The **elbow** method uses distortion to estimate the optimal numbero f clusters k.
+12. The **silhouette coefficient** is also useful to quantify the quality of clustering:
+* Calculate the **cluster cohesion**: average distance between an example and all other points in the same cluster
+* Calculate the **cluster separation**: average distance between the example and all examples in the nearest cluster
+* Calculate the **silhouette**: cluster separation - cluster cohesion / max(cluster separation, cluster cohesion)
+13. Values range between -1 and 1
+14. **Hierarchical clustering**: two main approaches are agglomerative and divisive hierarchical clustering
+15. Advantages of hierarchical clustering: can plot **dendrograms** to help with interpretation, and **do not need to specify** the number of clusters upfront
+16. The two standard algorithms for **agglomerative hierarchical clustering** are **single** linkage and **complete** linkage: single linkage computes distances between the most similar members for each pair of clusters and merges the two clusters which have the smallest distance. In contrast, the complete linkage approach compares the two most dissimilar members to form the merge
+17. Other types of agglomerative hierarchical clustering include **average** linkage (merge cluster pairs based on minimum average distance between all group members) and **Ward** linkage (merge the two clusters that lead to the minimum increase of total within-cluster SSE)
+* Compute pair-wise distance matrix of all examples
+* Represent each data point as its own cluster
+* Merge the two closest clusters based on distance between most distant members
+* Update cluster linkage matrix
+* Repeat until one single cluster remains
+18. **Density-based spatial clustering of applications with noise (DBSCAN)**: does not make spherical assumption like k-means, and does not partition dataset into hierarchies that require a manual cut-off:
+* A **core** point is a point that has at least a specified number of neighbouring points fall within the specified radius
+* A **border** point is a point that has fewer neighbours than the specified number, but lies within the specified radius of a core point
+* All other points are considered **noise points**
+* After labelling all points, form separate clusters for each core point or connected group of core points
+* Assign each border point to the cluster of its corresponding core point
+19. Disadvantages of DBSCAN: has two hyperparameters, does not work well with high dimensional data
