@@ -84,7 +84,7 @@
 2. **Pointer**: memory address of a variable
 3. **Pointer variable**: variable which can store memory addresses
 4. Pointer variables are declared as type *variable
-5. * is known as the **dereference** operator ('the variable located at the address') and & is the **address-of operator** ('the address of the variable')
+5. '*' is known as the **dereference** operator ('the variable located at the address') and & is the **address-of operator** ('the address of the variable')
 6. Dynamic variables are created with 'new' and destroyed with 'delete'
 7. To safeguard against dangling pointers, we set the pointer = **NULL**
 8. Pointer arithmetic involves addition and subtraction, not multiplication or division
@@ -92,3 +92,13 @@
 10. To delete a dynamic array, we write: delete [] number_ptr;
 11. Declaring variables as **static** makes them remain in existence throughout the execution of the program
 12. **struct** is used to store together elements of different data types
+
+## Lecture 8
+1. For recursion, C++ arranges memory spaces needed for each function call in a **stack** (last in first out)
+2. A function defined recursively can be defined iteratively
+3. **Benefit of recursion**: usually requires less local variable declarations
+4. **Downside of recursion**: often run slower and use more memory
+5. **Quick sort** is a recursively defined procedure for rearranging the values stored in an array in ascending or descending order
+* The index of the pivot value is chosen by evaluating: (first index + last index) / 2 
+* left_arrow and right_arrow start at the first and last index. Values are swapped if right_arrow value is less than pivot, or left arrow value is more than pivot
+* Process continues until left arrow index is greater than right arrow index
