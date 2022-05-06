@@ -186,3 +186,9 @@
 * After labelling all points, form separate clusters for each core point or connected group of core points
 * Assign each border point to the cluster of its corresponding core point
 19. Disadvantages of DBSCAN: has two hyperparameters, does not work well with high dimensional data
+
+## Chapter 11
+1. It common to scale pixel values to [-1,1] 
+2. **Backpropagation** is a computationally efficient approach to computing** partial derivatives of complex, non-convex loss functions**. The partial derivatives are used to learn weight coefficients for parameterising multilayer artificial neural networks
+3. **Automatic differentiation** has two modes: forward and reverse (backpropagation is a special case of the reverse)
+4. Backpropagation is efficient because it involves **matrix-vector multiplication** rather than matrix-matrix multiplication
