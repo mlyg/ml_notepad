@@ -192,3 +192,20 @@
 2. **Backpropagation** is a computationally efficient approach to computing** partial derivatives of complex, non-convex loss functions**. The partial derivatives are used to learn weight coefficients for parameterising multilayer artificial neural networks
 3. **Automatic differentiation** has two modes: forward and reverse (backpropagation is a special case of the reverse)
 4. Backpropagation is efficient because it involves **matrix-vector multiplication** rather than matrix-matrix multiplication
+
+## Chapter 12
+1. By default, Python is limited to execution on one core due to the **global interpreter lock (GIL)**
+2. **CUDA** and **OpenCL** are special packages to use the GPU
+3. The Pytorch **computation graph** is defined **implicitly** rather than being explicitly constructed and executed
+4. **torch.tensor()** creates a tensor from a list, and torch.from_numpy creates a tensor from a numpy array
+5. **torch.to()** used to change tensor type
+6. **torch.chunk()** divides an input tensor into a list of equally sized tensors: arguments - chunk: number of splits, dim=dimension which to split over
+7. **torch.split()** is similar by divides tensor into specified sizes
+8. **torch.stack()** needs same dimension to stack, while torch.cat() does not
+9. **torch.utils.data.DataLoader()** provides an automatic and customisable batching to a dataset
+10. **Dataset** class must contain the __init__(), __len__() and __getitem__() methods
+11. **nn.Module** allows layers to be stacked to form a network
+12. The **sigmoid function** does not perform well if the input is highly negative, because the output will be close to zero, and neural network training will be slow, and more likely to be trapped in a local minima. For this reason, a **hyperbolic tangent** is often preferred as an activation function in hidden layers
+13. The hyperbolic tangent (tanh) can be seen as a rescaled version of the logistic function. The benefit is that it has a broader output spectrum ranging from [-1,1] which can improve the convergence of the backpropagation algorithm
+14. The logistic function is available in **scipy.special expit**
+15. **ReLU** helps with the vanishing gradient problem because its derivative with respect to its input is always 1 for positive input values (but becomes very small for sigmoid and tanh)
