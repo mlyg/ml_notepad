@@ -209,3 +209,18 @@
 13. The hyperbolic tangent (tanh) can be seen as a rescaled version of the logistic function. The benefit is that it has a broader output spectrum ranging from [-1,1] which can improve the convergence of the backpropagation algorithm
 14. The logistic function is available in **scipy.special expit**
 15. **ReLU** helps with the vanishing gradient problem because its derivative with respect to its input is always 1 for positive input values (but becomes very small for sigmoid and tanh)
+
+## Chapter 13
+1. PyTorch performs its computations based on a **directed acyclic graph (DAG)**
+2. Only tensors of **floating point** and **complex** dtype can require gradients
+3. requires_grad is set to False by default, and can be set to true efficiently by using the method **requires_grad_()** [in place method]
+4. **Initialising random weights** is necessary to break the symmetry during backpropagation - otherwise multilayer neural networks would be the same as a single-layer neural network
+5. **Xavier** initialisation balances the **variance of the gradients across different layers**, and takes into account the number of input neurons and the number of output neurons in a layer. This performed better than just usin ga random uniform or random normal weight initialisation
+6. **Automatic differentiation**: implementation of the chain rule for computing gradients of nested functions
+7. The **gradient** of a function is a vector composed of all the inputs' partial derivatives
+8. **Forward** accumulation traverses the chain rule from inside out, while **reverse** accumulation traverses the chain rule from outside in
+9. nn.Sequential is useful to build models in a cascaded way
+10. **Universal approximation theorem**: a feedforward neural network with a single hidden layer and a relatively large number of hidden units can approximate arbitrary continuous functions relatively well
+11. **nn.Embedding** maps each index to a vector of random numbers of type float which can be trained
+12. The training_step, training_epoch_end, validation_step, test_step and configure_optimizers methods are specific to **PyTorch lightning**
+13. **PyTorch Ignite** has a training loop abstraction (unlike PyTorch which uses two for loops), additional training metrics and built-in handlers to compose training pipelines, save artifacts, and log parameters and metrics
