@@ -44,3 +44,22 @@
 16. Recursive function syntax: **return-data-type function-name ( argument-list ) { statements-to-be-executed ; incrementer ; conditional-test-to-recall-or-exit ; }**
 17. A recursive function generally uses **more system resources**, but it can make the code **more readable**
 18. **Inline declarations** may only contain one or two statements as the compiler recreates them at each calling point
+
+## Chapter 4
+1. The **< string >** library is part of the std namespace
+2. **C++ string** is much easier to work with than char arrays in C because they **automatically resize**
+3. The **cin** function stops reading the input when there is a **space**
+4. The **getline(cin, str)** functions is used to get a string with spaces (until \n) and store it in str
+5. **cin.ignore(256, '\n')** used to discard up to 256 characters up to a newline
+6. Since string is not a native type, it cannot be converted to an int or other regular data type through casting. To do so, need to import **< sstream >** library and use a **stringstream** object with the '>>' and '<<' operators
+7. **string.size()** returns character length, str.clear() empties string, string.capacity() reveals memory size,
+8. **string.compare()** compares the values of the ASCII equivalent and returns 0 if identical, -1 if the argument is larger than first string, otherwise 1
+9. Use **'='** to assign complete strings and **string.assign()** to assign partial strings
+10. Use **string.swap()** function wherever possible to avoid creating additional variables
+11. **string.find("substring",index_to_start)** searches for substring in string, and it returns the index number of first occurence if successful
+12. **string.find_first_of()** finds the first occurrence of any character in the string, and **string.find_first_not_of()** finds the first occurrence of a character not in the specified string. find_last_of() and find_last_not_of() begin searching at the end of the string
+13. **string.insert(index, "string")** inserts a string into another string
+14. **string.erase(index, num_to_remove)** removes a specified number of characters from a string
+15. **string.replace(begin_erase, num_erase, "string_add")** combines insert and erase
+16. **string.substr(index, num_char)** copies a substring
+17. **str.at(index)** copies a character
