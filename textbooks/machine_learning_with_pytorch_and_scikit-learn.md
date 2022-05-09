@@ -224,3 +224,24 @@
 11. **nn.Embedding** maps each index to a vector of random numbers of type float which can be trained
 12. The training_step, training_epoch_end, validation_step, test_step and configure_optimizers methods are specific to **PyTorch lightning**
 13. **PyTorch Ignite** has a training loop abstraction (unlike PyTorch which uses two for loops), additional training metrics and built-in handlers to compose training pipelines, save artifacts, and log parameters and metrics
+
+## Chapter 14
+1. Each feature map element comes from a **local** patch of pixels in the input
+2. CNNs perform well on image-related tasks because of **sparse connectivity** and **parameter sharing**, making the assumption that pixels nearby are more relevant to each other
+3. A **discrete convolution** is denoted by y = x * w, where x is the **input/signal** and w is the **filter/kernel**
+4. The computation involves first **rotating** the filter (not the transpose), and then computing the **dot product** in a sliding window approach
+5. **Cross-correlatio**n is similar to convolution but the filter does not need to be rotated. PyTorch implements cross-correlation, but refers to it as convolution
+6. Padding is important to prevent middle elements from contributing more. **Types of padding:**
+* **full**: p = m - 1. This increases the dimension of the output and is rarely used, except to minimise boundary effects in signal processing applications
+* **same**: ensures output vector has the same size as the input vector, and is the **most common**
+* **valid**: p = 0
+7. Convolution operations are efficiently implemented, for example using **Fourier transforms**
+8. Max-pooling introduces **local invariance**, helping to generate features robust to noise
+9. Pooling also decreases the size of features, which results in higher computational efficiency
+10. Setting stride of 2 in convolutional layers results in a pooling layer with learnable weights
+11. PyTorch format: **Tensor[batches, channels, image_height, image_width]**
+12. The convolution operation is performed on all channels separately and then summated
+13. L2 regularisation and weight_decay are equivalent when using stochastic gradient descent
+14. **Dropout** forces the network to learn a redundant representation of the data, which enables it to learn more general and robust patterns from the data
+15. Providing logits rather than class membership probabilities for computing the cross entropy loss is preferred due to numerical stability reasons
+17. RMSProp and AdaGrad inspired Adam
