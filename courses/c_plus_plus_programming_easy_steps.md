@@ -63,3 +63,32 @@
 15. **string.replace(begin_erase, num_erase, "string_add")** combines insert and erase
 16. **string.substr(index, num_char)** copies a substring
 17. **str.at(index)** copies a character
+
+## Chapter 5
+1. the **< fstream >** library provides functions to working with files
+2. For each file that is to be opened, a filestream object needs to be created, either the '**ofstream**' (output filestream) or '**ifstream**' (input filestream) object
+3. '**ofstream**' is used like **cout** to output and '**ifstream**' is like **cin** that reads input
+4. Syntax: **ofstream object-name ( “file-name” ) ;**
+5. After writing output to a nominated file the program should run **.close()**
+6. Strings can contain **\n** and **\t** for new line and tab 
+7. There are different file modes which belong to the **std::ios** namespace:
+* **ios::out** opens a file to write output
+* **ios::in** opens a file to read input
+* **ios::app** Open a file to append output at the end of any existing content
+* **ios::trunc** truncates existing file (Default)
+* **ios::ate** open a file without truncating and allow data to be written anywhere in the file
+* **ios::binary** treat the file as binary format rather than text so the data may be stored in non-text format
+8. Multiple modes can be called using '|': **ofstream object-name ( “file-name” , ios::out|ios::binary ) ;**
+9. The ifstream filestream object has a get() function that can be used in a loop to read a file and assign each character to the char variable specified as its argument, or getline() if used to read strings (getline() stops reading at \n)
+10. **filestream.eof()** is used to check if at the end of a file
+11. The **getline()** function has a **third optional argument** that specifies a **delimiter** to stop reading a line
+12. **cout and cin can be modified with functions: **
+* **width()** to set stream character width
+* **fill()** to indicate empty portion if the content does not fill entire stream width
+* **precision()** default precision is 6 for floating point
+13. **< iostream >** library provides manipulators which modify stream using << and >> operators
+14. **Syntax** and **logic** errors are "compile-time" errors, while **exceptional** errors are "run-time" errors
+15. **try-catch blocks** are used for exception errors
+16. **catch(exception &error):** a reference to the exception can be passed to the catch block which specifies the argument to be an exception type, and a chosen exception name prefixed by the & reference operator
+17. The C++ **< stdexcept >** library defines a number of exception classes, and exception type information defined in **< typeinfo > **
+18. While cout function sends data to standard output, **cerr** ends error data to standard error output
