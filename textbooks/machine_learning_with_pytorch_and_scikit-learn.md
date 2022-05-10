@@ -247,4 +247,31 @@
 17. RMSProp and AdaGrad inspired Adam
 
 ## Chapter 15
-1. 
+1. Typical supervised learning algorithms assume the input is **independent and identically distributed **
+2. The **order matters** for modelling sequence data
+3. Time series data is a special type of sequential data where each sample is taken at successive time points
+4. The different categories of **sequence modelling**:
+* **Many-to-one**: input data is a sequence, but output is a fixed size vector e.g. sentiment analysis
+* **One-to-many**: input data is in standard format but the output is a sequence e.g. image captioning
+* **Many-to-many**: both input and output are sequences, and either synchronised (video classification) or delayed (translation)
+5. In an RNN, the hidden layer receives its input from both the input layer of the current time step and hidden layer from the previous time step
+6. The flow of information is usually displayed as a loop, also known as a **recurrent edge** in graph notation
+7. A single-layer RNN has one hidden layer
+8. RNNs are trained using** backpropagation through time (BPTT)**
+9. Besides hidden recurrence, there is also **output to hidden** recurrence and **output to output** recurrence
+10. BPTT involves a multiplicative factor in computing gradients of a loss function leading to vanishing/exploding gradient problem. There are three solutions to this:
+* Gradient clipping
+* Truncated backpropagation through time (TBPTT)
+* LSTM
+11. **Long short-term memory (LSTM) cells:**
+* contain a **recurrent edge** with w = 1 to overcome vanishing/exploding gradient problems. The values associated with this edge is called the **cell state**
+* the cell state is modified for the next time step without being multiplied directly by any weight factor
+* the flow of information through the memory cell is controlled by **gates**
+* **forget gate**: allows memory cell to reset the cell state
+* **input gate** (sigmoid) and **candidate value** (tanh) are responsible for updating the cell state
+* **output gate**: decides how to update the values of the hidden unit
+12. **Feature embedding** maps each word to a vector of fixed size with real-valued elements, and has two main advantages over one-hot encoding
+* reduction in dimensionality of feature space
+* extraction of salient features
+13. **Bidirectional LSTMs** make recurrent layer pass through input sequences from both directions, making a forward and reverse pass over the input sequence, with the resulting hidden state of the forward and reverse pass usually concatenated into a single hidden state
+14. **Autoregression**: using the generated sequence as input for generating new elements
