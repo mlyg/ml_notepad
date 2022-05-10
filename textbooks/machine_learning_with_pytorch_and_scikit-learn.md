@@ -275,3 +275,48 @@
 * extraction of salient features
 13. **Bidirectional LSTMs** make recurrent layer pass through input sequences from both directions, making a forward and reverse pass over the input sequence, with the resulting hidden state of the forward and reverse pass usually concatenated into a single hidden state
 14. **Autoregression**: using the generated sequence as input for generating new elements
+
+## Chapter 16
+1. A limitation of seq2seq with RNN is that the **single hidden unit must remember the entire input sequence**, and compressing all the information into a single hidden unit may cause **loss of information**
+2. An **attention mechanism** allows the RNN **access to all input elements** at each time step, but assigns **different attention weights** to each input element
+3. **Bidirectional RNNs** are useful because current inputs may have a dependence on sequence elements that came either before or after it in a sentence, or both
+4. Attention-based RNN consists of two RNNs: the first RNN generates a **context vector** (weighted version of the concatenated hidden states) from input sequence elements, and the second RNN receives the context vector as input
+5. The attention weight is a normalised version of the **alignment score**, which evaluates how well the input matches the output
+6. Self-attention models the dependencies of the input element to all other input elements:
+* Firstly, **importance weights** are derived based on the similarity between the current element and all other elements in the sequence
+* Secondly, the weights are **normalised**
+* Thirdly, the weights are used in combination with corresponding sequence element to compute the attention value
+7. **Scaled dot-product attention** has learnable parameters that allow attention values to change during model optimisation
+8. There are three weight matrices, whose name comes from **information retrieval systems and databases**, where a query is matched against key values for which certain values are retrieved:
+* **Query** sequence q
+* **Key** sequence k
+* **Value** sequence v
+9. Alongside applying softmax, the attention coefficients are normalised by **1/sqrt(m)** to ensure that the **Euclidean length** of the weight vectors will be approximately in the same range
+10. **Attention is all you need transformer:**
+* The encoder takes the sequential input and maps it into a **continuous representation** that is then passed to the decoder
+* The encoder is a stack of 6 identical layers, which each contain two sublayers: **multi-head self-attention** and **fully-connected layer**
+* Multi-head attention uses **multiple heads** (sets of query, value and key matrices) similar to how CNNs use multiple kernels
+* In practice, rather than having a separate matrix for each attention head, transformer implementations use a single matrix for all heads, accessing logically separate regions of the matrix using masks
+* The vectors are concatenated into one long vector and a linear projection (fully connected layer) is used to map it back to an ppropriate length
+* The decoder further contains a **masked** multi-head attention sublayer, to mask out words later in the sentence
+* The main difference between the encoder and decoder is that the encoder calcluates attention across all words in a sentence (bidirectional input parsing), while the decoder only considers elements that are preceding the current input position (unidirectional input parsing)
+11. Scaled-dot product attention and fully connected layers are **permutation invariant**, and therefore positional encodings are important, which involve adding a vector of small values to the input embeddings at the beginning of the encoder and decoder blocks e.g. **sinusoidal encoding** (which prevents the positional encoding from getting too large)
+12. **Layer normalisation**: preferred in NLP, where sentence lengths can vary. It computes normalisation statistics across all feature values independently for each training example, relaxing minibatch size dependencies
+13. A simple way to perform **self-supervised learning** (unsupervised pretraining) is to perform **next-word prediction** on a large corpus, enabling the model to learn the probability distribution of words and can form a strong basis for becoming a powerful language model
+14. Using a pretrained model, transfer learning is done either by:
+* **Feature-based approach**: uses pre-trained representations as additional features to a labelled dataset, and train a classifer using the embedding outputs as features
+* **Fine-tuning approach**: add a fully connected layer to the pre-trained model to accomplish tasks
+16. **Generative Pre-trained Transformer (GPT): **
+* GPT-1 uses a transformer decoder structure, relying on preceding words to predict the next word
+* GPT-2 does not require any additional modification during input or fine-tuning stages unlike GPT-1
+* GPT-3 shifts focus from zero to **few shot learning** via in-context learning, and uses sparse attention by only attending to a subset of elements with limited size (rather than the O(n^2) with dense attention
+17. **Bidirectional Encoder Representations from Transformers (BERT):**
+* Uses a transformer encoder
+* Uses bidirectional training procedure, which prevents it from generating a sentence word by word, but provides input encodings of higher quality for other tasks such as classification
+* BERT not only uses positional embeddings and token embeddings, but also **segment embeddings** which is used for a special pre-training task called next-sentence prediction (given two sentences, must decide whether it belongs to the first or second sentence)
+* BERT pretraining is either masked language modelling (predict hidden words) or next-sentence prediction (predict whether a sentence is the next sentence or not)
+19. **Bidirectional and Auto-regressive Transformer (BART):**
+* GPT specialty is generating text, whereas BERT performs better on classification
+* BART can be seen as a generalisation of both GPT and BERT, and can both generate and classify text, using a bidirectional encoder as well as left-to-right autoregressive decoder
+* Pretraining BART involves feeding **corrupted input** (token masking, deletion, text infilling, sentence permutation and document rotation) and it must learn to reconstruct the input
+* BART performs summarisation rather than sequence generation
