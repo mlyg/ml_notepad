@@ -245,3 +245,6 @@
 14. **Dropout** forces the network to learn a redundant representation of the data, which enables it to learn more general and robust patterns from the data
 15. Providing logits rather than class membership probabilities for computing the cross entropy loss is preferred due to numerical stability reasons
 17. RMSProp and AdaGrad inspired Adam
+
+## Chapter 15
+1. 
