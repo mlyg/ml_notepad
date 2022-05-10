@@ -92,3 +92,18 @@
 16. **catch(exception &error):** a reference to the exception can be passed to the catch block which specifies the argument to be an exception type, and a chosen exception name prefixed by the & reference operator
 17. The C++ **< stdexcept >** library defines a number of exception classes, and exception type information defined in **< typeinfo > **
 18. While cout function sends data to standard output, **cerr** ends error data to standard error output
+
+## Chapter 6
+1. The location in computer memory is expressed in **hexadecimal** format and can be revealed by the **& reference** operator
+2. **Pointers** are variables that **store the memory address** of other variables
+3. The pointers data type must match the variable to which it points to
+4. A pointer variable is initialised by assigning it the memory address of another variable using the & reference operator
+5. *** is the dereferencing/indirection operation** and when used on a pointer will return the variables value
+6. Pointer variables can be assigned another address or changed using pointer arithmetic, useful for arrays whose elements occupy consecutive memory addresses
+7. The name of an array acts like a pointer to its first element
+8. When variables are passed to functions their data is **passed by value** i.e. the function operates on a copy. In contrast, when pointers are passed their data is **passed by reference** i.e. function operates on the original value
+9. A pointer to a constant char array can be assigned a string of characters
+10. Reference declaration syntax: **int& rNum = num ; **
+11. Unlike pointers, there is no way to get the address of the **reference**, which is a true **alias** to its associated item
+12. Passing by reference is more efficient than passing by value so the use of pointers and references should be encouraged
+13. **Always use a reference** unless you **do not want to initialise** in the declaration or want to be **able to reassign** another variable
