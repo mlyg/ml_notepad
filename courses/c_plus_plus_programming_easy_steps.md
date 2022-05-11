@@ -103,7 +103,7 @@
 7. The name of an array acts like a pointer to its first element
 8. When variables are passed to functions their data is **passed by value** i.e. the function operates on a copy. In contrast, when pointers are passed their data is **passed by reference** i.e. function operates on the original value
 9. A pointer to a constant char array can be assigned a string of characters
-10. Reference declaration syntax: **int& rNum = num ; **
+10. Reference declaration syntax: **int& rNum = num ;**
 11. Unlike pointers, there is no way to get the address of the **reference**, which is a true **alias** to its associated item
 12. Passing by reference is more efficient than passing by value so the use of pointers and references should be encouraged
 13. **Always use a reference** unless you **do not want to initialise** in the declaration or want to be **able to reassign** another variable
