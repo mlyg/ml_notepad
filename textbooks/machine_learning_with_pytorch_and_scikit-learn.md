@@ -320,3 +320,69 @@
 * BART can be seen as a generalisation of both GPT and BERT, and can both generate and classify text, using a bidirectional encoder as well as left-to-right autoregressive decoder
 * Pretraining BART involves feeding **corrupted input** (token masking, deletion, text infilling, sentence permutation and document rotation) and it must learn to reconstruct the input
 * BART performs summarisation rather than sequence generation
+
+## Chapter 17
+1. First proposed in **2014** by **Ian Goodfellow**
+2. Purpose is to **synthesise new data** that has the **same distribution** as its training dataset
+3. **Autoencoders** do not synthesise new data, but perform **data compression** by mapping the input data onto a **latent vector**
+4. An autoencoder without any non-linearity is like PCA, except that **PCA** has an additional **orthonormal constraint**
+5. Deep autoencoders have multiple layers and non-linearities
+6. Autoencoders with a latent vector dimension smaller than input is called **undercomplete**
+7. **Overcomplete** audoencoders have a latent vector larger than input, and can be used for noise reduction, by adding random noise to input (**denoising autoencoder**)
+8. A **variational autoencoder** is a generalisation of autoencoders into a generative model
+* With an input sample x, the encoder computes **two moments** of the distribution of the latent vector (mean and variance), and during training the network is forced to match these to the standard normal distribution
+* After VAE trained, **encoder is discarded** and the decoder can be used to generate new examples by feeding random z vectors from the ‘learned’ Gaussian distribution
+9. Traditionally, generative models could perform **conditional inference**, which involves sampling a feature xi conditioned on another feature xj
+10. A GAN model trains the **generator** and **discriminator** models together, and improve by playing an adversarial game
+11. The loss function is the value function, which can be interpreted as a payoff: **maximise value** with respect to **discriminator** and **minimise value** with respect to **generator**. GANs are trained by alternating between the two optimisation steps by freezing parameters of each model in turn
+12. **ReLU** results in **sparse gradients** which may not be suitable when we want to have gradients for the full range of input values, therefore **leaky ReLU** is often used
+13. **Deep convolutional GAN (DCGAN)** first uses a fully connected layer to project the random vector to be reshaped into a spatial convolution representation, and then uses as series of transposed convolutions to upsample the image to the desired output image size
+14. **Transposed convolution** is also known as **fractionally strides convolution**, and is not a deconvolution because it focuses on recovering the dimensionality of the feature space and not the actual values. It works by adding zeros between the elements and then applying a convolution
+15. Batch normalisation involves normalising layer inputs and preventing changes in their distribution during training, which enables faster and better convergence. **Batch normalisation involves: **
+* Compute **mean** and **standard deviation** of the net inputs for each mini-batch
+* **Standardise** the net inputs for all examples in the batch
+* **Scale** and **shift** the normalised net inputs using two learnable parameter vectors gamma and beta
+* During training, the running averages and variance are computed
+16. Batch normalisation was initially developed to help reduce **internal covariance shift** (change that occurs in distribution of a layer’s activation due to updating network parameters), but recent research suggests that batch normalisation mainly helps by **smoothening** the surface of the loss function
+17. It is **not usually recommended** to use bias units in layers that follow batch normalisation because bias units would be redundant
+18. **Dissimilarity measures between two distributions**
+* **Total variation**: measures the largest difference between the two distributions at each point. sup(S) refers to the smallest value that is greater than all elements of S i.e. the least upper bound. inf(S) used in Earth mover’s distance refers to the largest value that is smaller than all elements of S i.e. greatest lower bound. 
+* **Earth mover’s distance**: minimal amount of work needed to transform one distribution into another
+* **Kullback-Leibler (KL)** and **Jensen-Shannon (JS) divergence**: come from information theory. KL is not symmetric i.e. KL(P||Q) != KL(Q||P)
+19. EM distance has advantages over KL, TV and JS, and can be simplified using the **Kantorovich-Rubinstein duality theorem**
+20. **WGAN** uses the discriminator as a critic rather than a classifier, output scalar scores rather than probability values. To ensure the **1-Lipschitz property** is preserved, the weights are clamped to a small region e.g. [-0.01,0.01]
+21. However, it was found that clipping weights led to exploding/vanishing gradients, and capacity underuse, therefore WGAN with **gradient penalty** (WGAN-GP) was proposed
+22. WGAN uses layer normalisation rather than batch normalisation
+23. **Mode collapse** is a common issue with GAN, where the generator gets stuck in a small subspace and generates similar samples - **mini-batch discrimination**, **feature matching** and **experience replay** can help overcome this
+
+## Chapter 18
+1. **Undirected graph** G is a pair (V,E) where V is the set of graph nodes and E is the set of edges making up the paired nodes. The graph can be encoded as a |V| x |V| **adjacency matrix** A where 1 denotes an edge between the nodes I and j
+2. **Directed graphs** are defined like undirected graphs but E consists of the set of **ordered pairs** of edges
+3. **Labeled graphs** use feature matrices to contain formation about node or edges
+4. Graphs have **structural locality** compared to locality in 2D space in images
+5. A strict prior for graph data is **permutation invariance**: ordering of nodes does not affect the output
+6. A convolutional approach is desirable for graphs because it can function with a fixed parameter set for graphs of different sizes
+7. **Message-passing framework** of graph convolutions: each node has an associated hidden state, and each graph convolution is split into a **message-passing** and **node update** phase
+8. **Spectral graph convolutions** are different to spatial graph convolutions, and are useful for capturing **global patterns** in graph data. Spectral graphs operate using the graph’s spectrum (its set of eigenvalues) by computing the eigendecomposition of a normalised version of the graph’s adjacency matrix called the graph Laplacian
+9. For an undirected graph, the **Laplacian matrix is L = D - A**, where D is the degree matrix (diagonal whose elements on the diagonal is the number of edges in and out of the node on that row)
+10. L is real-valued and symmetric, and can therefore be decomposed into L = Q L QT
+11. **Spectral convolutions have several undesirable properties: **
+* Eigendecomposition is O(n^3)
+* Can only be applied to graphs of the same size
+* Receptive field is fixed to the whole graph
+12. **Chebyshev graph convolutions** can approximate the original spectral convolution at a lower time complexity and can have receptive fields with varying sizes
+13. **There are different types of pooling for graphs:**
+* Mean or max pooling
+* DiffPool: learns a soft cluster assignment, and performs clustering and downsampling simultaneously
+* Top-k pooling: drops nodes from graphs
+14. There are different types of **normalisation**
+* GraphNorm
+* MessageNorm
+
+## Chapter 19
+1. RL is not about teaching how to do things, only what we want the agent to achieve
+2. **Dynamic programming vs recursion**: DP stores the results of subproblems so that they can be accessed in constant time
+3. If the dynamics of the environment are known, then DP can be used to solve it, otherwise TD or MC its needed
+4. A **Markov process** can be represented as a **directed cyclic graph** where the nodes represent the state and edges the transition probabilities - the transition probabilities coming out of each state sum to 1
+5. With DP, we can perform one-step look ahead to find the action that gives the maximum value
+6. For the replay buffer, using a **deque data structure** from Python collections is more efficient than a list
