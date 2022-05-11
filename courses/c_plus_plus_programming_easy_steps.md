@@ -127,3 +127,14 @@
 13. Derived classes do not inherit the constructor or destructor, although the default constructor of the base class is always called when a new object of a derived class is created and the base class destructor is called when the object gets destroyed
 14. A method can be declared in a derived class to override a matching method in the base class
 15. A single overriding method in a derived class will hide all overloaded methods of that name in the base class
+
+## Chapter 8
+1. The three main parts of OOP are **encapsulation**, **inheritance** and **polymorphism**
+3. A **base class pointer** can be used to call **inherited methods** in the derived class to which it is bound
+4. A base class pointer can also be used to **explicitly** call base class methods using the **::** scope resolution operator
+5. The syntax: **Base* pSub = new Sub; **
+6. **Virtual** base class methods are **intended to be overridden** in derived classes
+7. The advantage of polymorphism with multiple derived class objects is that calls to methods of the same name are directed to the appropriate overriding method
+8. **Capability classes** sole purpose is to allow other classes to be derived from them - often contain no variables and a number of virtual methods that can be overriden
+9. An **Abstract Data Type (ADT)** is a concept rather than an object, and classes can be made into ADTs by initialising methods to 0
+10. It is not possible to create an instance object of an ADT
