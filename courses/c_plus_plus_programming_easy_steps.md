@@ -107,3 +107,23 @@
 11. Unlike pointers, there is no way to get the address of the **reference**, which is a true **alias** to its associated item
 12. Passing by reference is more efficient than passing by value so the use of pointers and references should be encouraged
 13. **Always use a reference** unless you **do not want to initialise** in the declaration or want to be **able to reassign** another variable
+
+## Chapter 7
+1. A **class** is a data structure which contains both **variables** and **functions** (methods) - both are known as members
+2. Access to class members is controlled by **access specifiers** in the class declaration:
+* **Public**: accessible from any place where the class is visible
+* **Private**: accessible only to other members of the same class
+* **Protected**: accessible only to other members of the same class and members to classes derived from that class
+3. The **default** is **private**
+4. It is convention to begin **class** names with an **upper case letter** and **objects** with a **lower case letter**
+5. '**setter**' methods **assign** data while '**getter**' methods **retrieve** data
+6. Typically the **methods** are **public** and **variables** are **private**
+7. For methods with more than two lines, they should be declared as a prototype and defined separately. The definition is written as **class::function**
+8. Where a class method definition has an argument of the same name as the class member, the **this -> class pointer** can be used to explictly refer to the class member variable
+9. Class variables can be initialised using a constructor, and is always named exactly as the class name and requires arguments to set the initial value of class variables
+10. The destructor is always named exactly as the class name but with a preceding **~**
+11. Constructor methods can be overloaded
+12. **Inheritance** syntax: a derived class declaration adds a colon : after its class name followed by an access specifier and class from which it derives. Commas separate class declarations derived from more than one class
+13. Derived classes do not inherit the constructor or destructor, although the default constructor of the base class is always called when a new object of a derived class is created and the base class destructor is called when the object gets destroyed
+14. A method can be declared in a derived class to override a matching method in the base class
+15. A single overriding method in a derived class will hide all overloaded methods of that name in the base class
