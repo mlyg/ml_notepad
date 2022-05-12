@@ -162,4 +162,10 @@
 16. A macro definition can combine two terms into a single term using the** ## merging** operator
 17. The **ASSERT** macro is useful for debugging, which evalutes a condition for a boolean value
 
-
+## Chapter 10
+1. **< cstdlib >** rand function can be used to generate a pseudo-random number of 0.0 to 32,767 - the maximum value can be specified with %
+2. To generate a different sequence of numbers a '**seed**' must be specified as an argument to the **srand** function
+3. To generate different sequence of numbers, use **srand( ( int ) time( 0 ) ) ;** which requires the < ctime > library
+4. The time(0) specifies the number of seconds since 1st January 1970 - the 0 is required and specifies the return time does not need to be stored
+5. The **^** character denotes a “handle” reference to a managed System object that has automatic “garbage collection” to prevent memory leaks
+6. The **System::Convert** class provides many functions that make type conversion simple – like the ToString function that is used here to convert int values to System::String values
