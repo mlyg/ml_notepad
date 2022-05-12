@@ -138,3 +138,28 @@
 8. **Capability classes** sole purpose is to allow other classes to be derived from them - often contain no variables and a number of virtual methods that can be overriden
 9. An **Abstract Data Type (ADT)** is a concept rather than an object, and classes can be made into ADTs by initialising methods to 0
 10. It is not possible to create an instance object of an ADT
+
+## Chapter 9
+1. **Compilation**:
+* from **source code (.cpp)** preprocessor called to find any compiler directives that may be included, producing a text file **Substitutions (.ii)**
+* Substitutions is compiled into **assembly code (.s)**
+* assembly code is translated into **machine code**, which is a **binary file (.o)**
+* finally a **Linker** converts one or more binary objects into an **executable program (.exe)**
+2. Temporary files can be seen by using the **-save-temps** compiler option
+3. The **#define** directive specificies a macro comprising an identifier name and string/numerical value to be substituted by the preprocessor for each occurrence of the macro - **macro names are usually all upper case**
+4. Numeric constants should be defined as const variables, as values substituted by the preprocessor are not subject to type-checking
+5. Substitutions can alternatively be made with the **-Dname** option
+6. **#ifdef** tests to see if a specified macro has been defined
+7. **#ifndef** tests to see if a specified macro has not been defined
+8. If either are true, it will insert directives/statements up to #endif
+9. **#undef** is used to remove macros
+10. There are also **#elif** and **#else** to make alternative tests
+11. All header files should contain **header guards**
+12. #define can be used to create **macro functions** e.g. #define HALF( n ) ( n / 2)
+13. However macro functions are not subject to type-checking, although they avoid the overhead of a function call so are faster
+14. An **inline function** saves the overhead of checking between a function prototype declaration and its definition
+15. The preprocessor **#** operator is known as the **“stringizing”** operator as it converts a series of characters passed as a macro argument into a string
+16. A macro definition can combine two terms into a single term using the** ## merging** operator
+17. The **ASSERT** macro is useful for debugging, which evalutes a condition for a boolean value
+
+
