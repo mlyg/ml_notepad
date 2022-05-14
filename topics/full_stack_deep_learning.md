@@ -7,6 +7,11 @@
 4. Conditioning methods:
 * First order methods: weight initialisation, normalisation
 * Second order methods: Newton's method, Natural gradient, Adagrad, Adam, Momentum
+5. The goal of back propagation is to calculate partial derivatives with respect to any weight or bias
+6. For backpropagation to be applied:
+* The cost function should be able to be written as an average over the training examples
+* The cost function can be written as a function of the output of the neural network
+7. The Hadamard/Schur product involves element-wise multiplication
 
 ## Lab 1
 1. watch -n1 -nvidia-smi is useful to watch GPU on google colab
