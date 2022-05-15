@@ -50,3 +50,17 @@
 21. Pose estimation detects joint location 
 22. White box attacks have access to model parameters, black box do not
 23. Style transfer: constraint on style and constraint on content
+
+## Lecture 3
+1. Feedforward networks cannot deal with variable length scaling, and has memory requirement scaling linearly in number of timesteps. It is also overkill as it has to learn patterns everywhere that may occur in the sequence
+2. The core idea of RNN is stateful computation
+3. Problem with rNN: all the information in the input sequence is condensed into one hidden state vector
+4. Vanilla RNNs cannot handle more than 10-20 timesteps because of vanishing gradients
+5. ReLU RNNs often have exploding gradients, while sigmoid/tanh leads to vanishing gradient as derivatives << 1
+6. LSTMs work well for most tasks, but worth trying GRUs if LSTMs are not performing well
+7. Stacking LSTM layers help with underfitting but are hard to train
+8. Attention; instead of compressing all past time steps into a single hidden state, given the neural network access to the entire history, but pay attention only to a subset of past vectors
+9. The Google Neural Machine Translation approach used Stacked LSTM encoder-decoder architecture with residual connections, attention and bidirectional, trained using standard cross-entropy loss
+10. CTC loss: Model can produce either characters or epsilon token. First merge repeat characters. Then remove any epsilon tokens. The remaining characters are the output
+11. RNN training is not as parallelisable as FC or CNN due to sequential nature
+12. WaveNet is a convolutional sequential model applied to sequential data. Uses 1D causal convolution because the entire window is sampled from the past. Specifically dilated causal convolutions to increase receptive field. Although training is parallel, inference is serial and slow
