@@ -14,10 +14,14 @@
 7. The Hadamard/Schur product involves element-wise multiplication
 
 ## Lab 1
-1. watch -n1 -nvidia-smi is useful to watch GPU on google colab
+1. watch -n1 nvidia-smi is useful to watch GPU on google colab
 2. by default, ndarrays are float64
 3. plt.matshow has the origin at the top left corner, plt.imshow has the origin at the bottom left corner
 4. The module pdb defines an interactive source code debugger for Python programs
+5. importlib library is useful for dynamic importing using importlib.import_module()
+6. '->' is known as a function annotation, and it means the type of the result the function returns
+7. @classmethod: used to create class methods that are passed to the actual class object much like self is used for the class instance. It can be used as another way to instantiate an object.
+8. @staticmethod: does not contain 'self', so does not have access to instance data. Often a helper/utility method. Truly static in nature.
 
 ## Lecture 2
 1. The issue with FC layers for images:
