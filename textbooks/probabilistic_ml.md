@@ -15,4 +15,10 @@
 13. Factor analysis is similar to linear regression, but only observe the outputs (input features) and not the inputs (latent factors)
 14. Self-supervised learning can be used to learn useful features of the data while avoiding infering true latent factors
 15. The unconditional negative log likelihood can be used to evaluate unsupervised learning algorithms - treats unsupervised learning as density estimation, and a good model should not be surprised by 'actual' data samples
-16. 
+16. The better performance of CNNs than humans represents better fine-grained classification, rather than better at vision than humans
+17. Feature crosses can capture interaction effects which one-hot encoding cannot
+18. Missing data occurs in three ways:
+* Missing completely at random (MCAR): missingness does not depend on hidden or observable features i.e. missingness not related to features
+* Missing at random (MAR): missingness does not depend on hidden features, but may depend on observable features i.e. missingness can be explained by features we can observe
+* Not missing at random (NMAR: missingmess may depend on either hidden or observable features - need to model missing data as may be informative
+19. Alignment problem: potential discrepancy between what we ask the algorithm to optimise and what we actually want them to do. One proposed solution is to use inverse reinforcement learning where the agent infers the reward by observing human behaviour 
