@@ -129,3 +129,29 @@
 * SigOpt
 * Weights and biases
 12. Amazon Sagemaker and Google Cloud Platform and all-in-one solutions
+
+## Chapter 7
+1. Reasons for poor model performance:
+* Implementation bugs
+* Hyperparameter choices
+* Data/model fit
+* Dataset construction
+2. He initialisation for ReLU and Glorot for tanh
+3. Python's ipdb is useful for debugging
+4. Overfitting to a single batch is useful for catching errors:
+* Error goes up: often a flip sign somewhere in the loss function/gradient
+* Error explodes: usually a numerical issue but can also be caused by a high learning rate
+* Error oscillates: learning rate or data (shuffled labels or incorrect data augmentation)
+* Error plateaus: learning rate too low or regularisation, or loss function or the data pipeline issue
+5. Test error = irreducible error + bias + variance + distribution shift + validation overfitting
+6. It can be useful to have a test validation set to compare to the test error to estimate distribution shift
+7. Ranked list of hyperparameters and impact: 
+* High: learning rate, learning rate scheduler, loss function, layer size
+* Medium: weight initialisation, layer params, weight of regularisation
+* Low: optimiser, optimiser params, batch size, non-linearity
+8. Hyperparameter tuning:
+* Manual: can be time-consuming and challenging
+* Grid search: sample uniformyl across range, inefficient 
+* Random search: empircally performs better than grid search, but results less interpretable
+* Coarse-to-fine search: most popular method, gradually narrowing onto best hyperparameter range
+* Bayesian hyperparameter optimisation: efficient, switching between training with hyperparameter values that maximise the expected improvement (per the model) and use training results to update the initial probabilistic model and its expectations
