@@ -64,3 +64,68 @@
 10. CTC loss: Model can produce either characters or epsilon token. First merge repeat characters. Then remove any epsilon tokens. The remaining characters are the output
 11. RNN training is not as parallelisable as FC or CNN due to sequential nature
 12. WaveNet is a convolutional sequential model applied to sequential data. Uses 1D causal convolution because the entire window is sampled from the past. Specifically dilated causal convolutions to increase receptive field. Although training is parallel, inference is serial and slow
+
+## Lecture 4
+1. PyTorch can freeze layers by setting .eval()
+2. Self attention without learnable parameters involves the dot product and softmax:
+* for each input vector, multiply it by the transpose of all other vectors, and then perform softmax to get weights
+* multiply weights by all other vectors and sum to get output vector
+4. Self attention is permutation invariant
+5. For learnable weights:
+* The input vector x_i is compared to every other vector to compute attention weights for its output y_i (query)
+* The input vector x_i is compared to every other vector to compute attention weights w_ij for output y_j (key)
+* Summed with other vectors to form the result of the attention weighted sum (value)
+6. T5: text-to-text transfer transformer. Encoder-decoder architecture, evaluated the most recent transfer learning, and input and output are both text strings
+
+## Lecture 5
+1. 85% of AI projects fail
+2. Robot systems are split into state estimation and control for data efficiency and interpretability
+3. Lifecycle of ML project
+* Planning and project setup: decide on project, requirements, goals, resource allocation and ethics
+* Data collection and labelling: collect training data and annotate
+* Model training and debugging: implement baseline, SOTA, debug
+* Model deployment and testing: pilot the model in constrained environment, then roll for production
+4. Prioritising projects
+* High impact
+* Cheap prediction
+* Product needs
+* ML strength
+* Inspiration from others
+* High feasibility: the three main cost drivers are data availability, accuracy requirement and problem difficulty
+5. ML archetypes
+* Software 2.0: augmenting rule-based/deterministic software with probabilistic ML
+* Human in the loop: output of the model is reviewed by a human before execution into the real world
+* Autonomous system: the system engages in decisions which are almost never reviewed by humans
+6. With multiple metrics, commonly n-1 metrics are thresholded and one is optimised
+
+## Chapter 6
+1. The ML code portion in a real-world ML system is a lot smaller than the infrastructure needed for its support
+2. The ML infrastructure:
+* Data: data sources, lakes/warehouses, data processing, data exploration, data versioning, data labelling
+* Training/evaluation: compute sources, resource management, software engineering, frameworks and distributed training libraries, experiment management, hyperparameter tuning
+* Deployment: continuous integration and testing, edge deployment, web deployment, monitoring and feature store
+3. Problems with notebooks: 
+* challenging for good versioning: notebooks are large json files
+* notebook IDE has no integration, lifting or code-style correction
+* hard to structure code
+* out-of-order execution artefacts
+* difficult to run long or distributed tasks
+4. Streamlit is an easy way to create an app from a machine learning workflow
+5. NVIDIA GPUS Kepler -> Pascal -> Volta -> Turing -> Ampere
+6. Volta/Turing preferred due to mixed-precision over Kepler/Pascal
+7. Allocating resources to users:
+* SLURM: standard cluster job scheduler
+* Docker/Kubernetes: Docker packages the dependency stack into a container, and Kubernetes runs containers on cluster
+* Custom ML software: AWS sagemaker, paperspace gradient, Determined AI
+8. JAX focuses primarily on fast numerical computation with autodiff and GPUs across machine learning use cases
+9. Distributed training: process to conduct a single model training process
+* Data parallelism: split batch evenly across GPUs - simple
+* Model parallelism: split weights across GPUs and pass data through each to train the weights - complex
+10. Experiment management
+* Tensorboard
+* MLFlow
+* Weights and biases/neptune
+11. Hyperparameter tuning
+* SigOpt
+* Weights and biases
+12. Amazon Sagemaker and Google Cloud Platform and all-in-one solutions
