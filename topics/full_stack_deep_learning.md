@@ -137,7 +137,7 @@
 * Data/model fit
 * Dataset construction
 2. He initialisation for ReLU and Glorot for tanh
-3. Python's ipdb is useful for debugging
+3. Pytorch's ipdb is useful for debugging
 4. Overfitting to a single batch is useful for catching errors:
 * Error goes up: often a flip sign somewhere in the loss function/gradient
 * Error explodes: usually a numerical issue but can also be caused by a high learning rate
