@@ -155,3 +155,24 @@
 * Random search: empircally performs better than grid search, but results less interpretable
 * Coarse-to-fine search: most popular method, gradually narrowing onto best hyperparameter range
 * Bayesian hyperparameter optimisation: efficient, switching between training with hyperparameter values that maximise the expected improvement (per the model) and use training results to update the initial probabilistic model and its expectations
+
+## Chapter 8
+1. Data is the best way to improve machine learning performance
+2. Data flywheel: users contribute to data once model released
+3. Semi-supervised learning: training data is automatically labelled by exploiting correlations between different input signals
+4. Data augmentation in different domains:
+* images: crop, flip, rotate
+* tabular: delete some cells to simulate missing data
+* text: replace words with synonyms and change order
+* speech and video: change speed, insert a pause, mix sequences
+5. Population based augmentation is a faster method than AutoAugment to find optimal data augmentation settings
+6. Data storage system building blocks:
+* filesystem: networked filesystem (NFS) is accessible over the network by multiple machines; distributed file system (HDFS) is stored and accessed over multiple machines
+* object storage: API over the filesystem that allows users to use a command on files (GET, PUT, DELETE) to a service without worrying where they are actually stored
+* database: PostgreSQL is the right choice most of the time; persistent, fast, scalable storage and retrieval of structured data; fundamental unit is a row
+* data warehouse: structured aggregation of data for analysis, known as online analytical processing (OLAP)
+* data lake:  unstructured aggregation of data from multiple sources
+7. Federated learning trains a global model on several local devices without ever acquiring global access to the data - issues: 
+* sending model updates can be expensive
+* the depth of anonymization is not clear
+* system heterogeneity when it comes to training is unacceptably high
