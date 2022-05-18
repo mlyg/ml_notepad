@@ -98,7 +98,7 @@
 * Autonomous system: the system engages in decisions which are almost never reviewed by humans
 6. With multiple metrics, commonly n-1 metrics are thresholded and one is optimised
 
-## Chapter 6
+## Lecture 6
 1. The ML code portion in a real-world ML system is a lot smaller than the infrastructure needed for its support
 2. The ML infrastructure:
 * Data: data sources, lakes/warehouses, data processing, data exploration, data versioning, data labelling
@@ -130,7 +130,7 @@
 * Weights and biases
 12. Amazon Sagemaker and Google Cloud Platform and all-in-one solutions
 
-## Chapter 7
+## Lecture 7
 1. Reasons for poor model performance:
 * Implementation bugs
 * Hyperparameter choices
@@ -176,3 +176,32 @@
 * sending model updates can be expensive
 * the depth of anonymization is not clear
 * system heterogeneity when it comes to training is unacceptably high
+
+## Lecture 9
+1. Ethical theories:
+* Divine command: behaviour is moral if the divine commands it - not explored by philosophy
+* Virtue ethics: behaviour is moral if it upholds a person's virtues e.g. bravery, generosity. However virtues are not persistent across a person's life and somewhat illusory
+* Deontology: behaviour is moral if it satisfies a categorical imperative. Might lead to counter-intuitive moral decisions and unacceptable inflexibility
+* Utilitarian: behaviour is moral if it brings the most good to the most people. Utility is difficult to measure
+* Rawl's theory of justice: equal distribution of resources
+2. Long term AI ethical problems:
+* autonomous weapons
+* lost human labour: bad if no social safety net and no other jobs for the unemployed. Good because we need labour following the demographic inversion
+* human extinction
+3. Alignment problem: AI systems built need to be aligned with our goals and values
+4. AI for hiring:
+* Data is biased and can lead to prejudice
+* AI can end up amplifying existing biases
+5. Fairness
+* Even if you hide the protected attribute, the AI could find other patterns in the data that correlate with it
+* tradeoffs between individual fairness and group fairness
+6. Representation
+* there is a lack of attention to diverse representation in the development of technology products
+* this can be addressed by including people from all backgrounds
+* and deliberately ensuring products reflect inclusive values
+* one challenge is deciding whether the model should learn about the world as it is in the data or learn about the world in a more idealistic manner.
+7. Ideas to confront fairness
+* perform ethical risk sweeping: engage in regular fairness checks on behalf of different stakeholders
+* expand the ethical circle: consider different perspectives than your own
+* think about the worse-case scenario
+* close the loop: put in place a system that can improve
