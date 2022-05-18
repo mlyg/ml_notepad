@@ -339,3 +339,43 @@
 * select a measurement window: choose a measurement window to evaluate for drift
 * compare windows with a distance metric: either rule-based distance metrics (summary statistics) or statistical distance metrics (KL divergence, KS statistic, D1 distance)
 
+## Lecture 12
+1. Noisy student training: first train teacher with labeled data. Then infer pseudolabels on unlabelled data. Add data to training set where there pseudo label has confidence. Retrain with dropout, data augmentation and stochastic depth
+2. Deep unsupervised learning: multi-head networks, using learned features from unsupervised task to train on supervised task with few labels
+3. Unsupervised learning in vision
+* predict a missing patch
+* solve jigsaw puzzles
+* predict rotation
+* contrastive learning
+4. CURL brings together contrastive learning and RL: adds extra head at the bottom which includes augmented observations and performs contrastive learning
+5. Meta reinforcement learning: RL^2 maximises the expected reward on the training MDP but can generalise to testing MDP
+6. Few shot imitation learning: supervised learning where the output is an action
+7. Domain randomisation: generate variation in simulated data, and may generalise to the real world
+8. Domain confusion: train a model simultaneously on real and simulated data. Idea is to fool a discriminator looking at the outputs of a particular layer  to simulated or real data
+
+## Lecture 13
+1. ML roles
+* ML product manager: works with the ML team, other business functions, the end-users, and the data owners. This person designs documentation, creates wireframes, and comes up with the plan to prioritise and execute ML projects
+* DevOps Engineer: deploys and monitors production systems. This person handles the infrastructure that runs the deployed ML product using platforms like AWS or GCP.
+* Data Engineer: builds data pipelines, aggregates and collects data from storage, and monitors data behavior. This person works with distributed systems using tools such as Hadoop, Kafka, Airflow
+* ML Engineer: trains and deploys prediction models. This person uses tools like TensorFlow and Docker to work with prediction systems running on real data in production
+* ML Researcher: trains prediction models, often those that are forward-looking or not production-critical. This person uses libraries like TensorFlow and PyTorch on notebook environments to build models and reports describing their experiments
+*  Data Scientist: blanket term used to describe all of the roles above. In some organisations, this role entails answering business questions via analytics. He/she can work with wide-ranging tools from SQL and Excel to Pandas and Scikit-Learn
+2. ML organisations
+* nascent and ad-hoc ML
+* research and development ML 
+* product-embedded ML
+* independent ML division
+* ML first
+3. Reasons why managing ML teams is challenging
+* engineering estimation
+* non-linear progress
+* cultural gaps
+* leadership deficits
+4. Guidance on how to manage ML projects
+* plan probabilistically
+* have a variety of approaches
+* measure inputs, not result
+* have researchers and engineers work together
+* get end-to-end pipelines quickly
+* educate leadership on ML uncertainty
