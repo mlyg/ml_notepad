@@ -282,3 +282,60 @@
 * it can be easy to cherry-pick specific examples that can overstate explainability
 * methods tend to be unreliable and highly sensitive to the input
 * the full explanation is often not available to modern explainability methods
+
+## Lecture 11
+1. Types of deployment
+* client-side: runs locally on user machine
+* server-side: runs code remotely
+* database: server connects to database to pull data out, render data and show data to server
+2. Batch prediction: periodically run model on new data coming in and cache results in a database
+* benefits: simple to implement, low latency to user
+* drawbacks: does not scale to complex input types, users do not get up-to-date predictions, models become 'stable' and hard to detect
+3. Model-in-service: model is called in deployed web server
+* benefits: reuses existing architecture
+* drawbacks: web server may be in a different language, models may change more frequently than server code, large models can use a lot of resources for web server, server hardware may not be optimised for model (e.g. no GPUs), model and server may scale differently
+4. Model-as-server: model is deployed as its own service
+* benefits; dependable, scalable and flexible
+* drawbacks: adds latency, adds infrastructural complexity and on the hook to run a model service
+5. REST APIs are used to serve predictions from http requests 
+6. Managing dependencies
+* constrain dependencies of model: ONNX (train model with one framework and deploy with other). Problem is that model libraries are updated frequently and may have bugs translating layers
+* use containers: Docker
+7. Docker
+* containers are extremely portable, lightweight and secure
+* containers are different from virtual machines which r/equire the hypervisor to virtualise a full hardware stack
+* Dockerfile: defines how to build an image
+* Image: built packaged environment
+* Container: where images are run inside
+* Repository: hosts different versions of an image
+* Registry: set of repositories
+8. Kubernetes: while Docker deals with individual microservices, Kubernetes is an orchestrator to handle the whole cluster of services
+9. Model distillation
+* compression technique in which a small “student” model is trained to reproduce the behavior of a large “teacher” model
+* knowledge is transferred from the teacher model to the student by minimising a loss function
+* The target is the distribution of class probabilities predicted by the teacher model
+10. Model quantisation
+* model compression technique that makes the model physically smaller to save disk space and require less memory during computation to run faster
+* involves decreasing numerical precision of weights, and therefore tradeoff with accuracy
+11. Caching: takes advantage of non-uniform input distribution, and caches frequently-used inputs
+12. Batching: gather predictions from several users and process at once. Tradeoff between throughput and latency
+13. Horizontal scaling: split traffic among multiple machines, using either a container orchestration toolkit like Kubernetes, or serverless option like AWS Lambda
+14. Edge deployment
+* First send model to clients edge device, then client loads model and interacts with it directly
+* benefits: low latency, does not require an internet connection, data secure
+* drawbacks: client has limited hardware resources, embedded frameworks less developed, more difficult to update and debug
+15. Tools for edge deployment: TensorRT (NVIDIA), ApacheTVM, Tensorflow Lite, PyTorch mobile, Core ML (apple), ML Kit
+16. Model performance can degrade overtime:
+* data drift - p(x) changes: launch in new region, new users with different demographics
+* concept drift - p(y|x) changes: user behaviour changes
+* domain shift - sample does not adequately approximate p(x,y): long tail
+17. Types of data drift
+* Instantaneous drift: deploying model in new domain
+* Gradual drift
+* Periodic drift: Data can have fluctuating value due to underlying patterns like seasonality or time zones
+* Temporary drift
+18. How to measure distribution changes
+* select a reference window: using training/evaluation data for reference
+* select a measurement window: choose a measurement window to evaluate for drift
+* compare windows with a distance metric: either rule-based distance metrics (summary statistics) or statistical distance metrics (KL divergence, KS statistic, D1 distance)
+
