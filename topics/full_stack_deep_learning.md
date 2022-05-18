@@ -189,19 +189,96 @@
 * lost human labour: bad if no social safety net and no other jobs for the unemployed. Good because we need labour following the demographic inversion
 * human extinction
 3. Alignment problem: AI systems built need to be aligned with our goals and values
-4. AI for hiring:
+5. AI for hiring:
 * Data is biased and can lead to prejudice
 * AI can end up amplifying existing biases
-5. Fairness
+6. Fairness
 * Even if you hide the protected attribute, the AI could find other patterns in the data that correlate with it
 * tradeoffs between individual fairness and group fairness
-6. Representation
+7. Representation
 * there is a lack of attention to diverse representation in the development of technology products
 * this can be addressed by including people from all backgrounds
 * and deliberately ensuring products reflect inclusive values
 * one challenge is deciding whether the model should learn about the world as it is in the data or learn about the world in a more idealistic manner.
-7. Ideas to confront fairness
+8. Ideas to confront fairness
 * perform ethical risk sweeping: engage in regular fairness checks on behalf of different stakeholders
 * expand the ethical circle: consider different perspectives than your own
 * think about the worse-case scenario
 * close the loop: put in place a system that can improve
+
+## Lecture 10
+1. Problem with black-box predictions:
+* production distribution does not always match the offline distribution
+* expected performance does not tell the whole story
+* performance of your model is not equal to the performance of your machine learning system
+* might not be evaluating the metric that is important in the real world
+2. Software types of tests
+* unit tests: test functionality of single piece of code in isolation
+* integration tests: test how two or more units perform together
+* end-to-end tests: tests how the entire software system performs when all units are put together
+3. Best practices
+* automate tests
+* make sure tests are reliable, run fast and undergo code review
+* enforce that tests must pass before merging onto current branch
+* when a new production bug is found, make sure they become a test
+* follow the testing pyramid: from most to least - unit test (70%) -> integration test (20%) -> end-to-end test (10%)
+4. Controversial best practices
+* solitary tests: does not rely on real data from other units, while sociable testing makes implicit assumption that other modules are working
+* test coverage: states the percentage of lines of code in your codebase is called by at least one test. However, test coverage does not measure the right things (in particular, test quality)
+* test-driven development: create your tests before you write your code and use tests for specification of code function
+5. Testing in production
+* Canary deployment: roll out new software to a small percentage of your users and separately monitor that group’s behavior
+* A/B testing: run a more principled statistical test if you have particular metrics that you care about: one for the old version of the code that is currently running and another for the new version that you are trying to test.
+* Real user monitoring: Rather than looking at aggregate metrics (i.e., click-through rate), try to follow the journey that an actual user takes through your application and build a sense of how users experience the changes
+* Exploratory testing: Testing in production is not something that you want to automate fully. It should involve a bit of exploration (individual users or granular metrics)
+6. Continuous Integration and Continuous Delivery
+* automate tests by hooking into the repo
+* Github Actions is easy to integrate
+7. Common mistakes while testing ML systems
+* Think the ML system is just a model and only test the model
+* Not test the data
+* Not build a granular enough understanding of the performance of the model before deploying it
+* Not measure the relationship between model performance metrics and business metrics
+* Rely too much on automated testing
+* Think offline testing is enough, and therefore, not monitor or test in production
+8. ML system
+* training system: takes code and data as inputs and produces the trained model as the output
+* prediction system: takes in and pre-processes the raw data, loads the trained ML model, loads the model weights, calls model.predict() on the data, post-processes the outputs, and returns the predictions
+* serving system: takes in requests from users, scales up and down to meet the traffic demands, and produces predictions back to those users
+* production data: both the predictions that the model produces and additional feedback from users, business metrics, or labelers
+* labeling system: takes the raw data seen in production, helps you get inputs from labelers, and provides labels for that data
+* storage and pre-processing system: stores and pre-processes the labeled data before passing it back to the training system
+9. System component tests
+* infrastructure tests: unit tests for training system e.g. single batch or single epoch tests
+* training tests: integration tests between data system and training system
+* functionality tests: unit tests for prediction system e.g. load a pre-trained model and test its predictions on a few key examples
+* evaluation tests: integration tests between your training system and your prediction system. Consider all metrics: model metrics, behavioural metrics, robustness metrics, privacy and fairness metrics and simulation metrics
+* shadow tests: integration tests between your prediction system and your serving system. Help detect bugs in the production deployment, such as inconsistencies between offline model/data and production model/data
+* A/B tests: determine the impact of different model predictions on user and business metrics
+* labelling tests: spot check labels or measure agreement between labellers
+* expectation tests: unit tests for data to test for quality
+10. Explainable and interpretable AI
+* Domain predictability: the degree to which it is possible to detect data outside the model’s domain of competence.
+* Interpretability: the degree to which a human can consistently predict the model’s result
+* Explainability: the degree to which a human can understand the cause of a decision
+11. Interpretable family of models
+* simple, familiar models like linear regression, logistic regression, generalized linear models, and decision trees
+* attention models: however only tell where model looking, not why. 
+12. Distillation
+* fit a more complex model and interpret its decision using another model from an interpretable family
+* the additional model is called a surrogate model
+* however if surrogate model performs well, then unclear why not to just apply the surrogate model directly. Similarly, if it does not perform well, unclear if it genuinely represents model behaviour
+* local surrogate models (LIME) focus on a single point to generate an explanation for, by performing local pertubations of the data and training a surrogate model to make similar predictions to complex model
+13. Contribution of features to prediction
+* partial dependence plots and individual conditional expectation plots
+* permutation feature importance: selects a feature, randomizes its order in the dataset, and sees how that affects performance. Easy to use but does not work for high dimensional data or where there is feature interdependence
+* Shapley additive explanations (SHAP): SHAP scores test how much changes in a single feature impact the output of a classifier when controlling for the values of the other features
+* Gradient-based saliency maps: determines how much does a unit change in the value of the input’s pixels affect the prediction of the model. Similar problem to attention
+14. When explainability is needed
+* Regulators demand 
+* Users demand
+* Deployment demand: in this case, domain predictability is the real aim
+15. At present, true explainability for deep learning models is not possible
+* it can be easy to cherry-pick specific examples that can overstate explainability
+* methods tend to be unreliable and highly sensitive to the input
+* the full explanation is often not available to modern explainability methods
