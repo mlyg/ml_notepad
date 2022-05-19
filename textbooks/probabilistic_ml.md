@@ -22,3 +22,16 @@
 * Missing at random (MAR): missingness does not depend on hidden features, but may depend on observable features i.e. missingness can be explained by features we can observe
 * Not missing at random (NMAR: missingmess may depend on either hidden or observable features - need to model missing data as may be informative
 19. Alignment problem: potential discrepancy between what we ask the algorithm to optimise and what we actually want them to do. One proposed solution is to use inverse reinforcement learning where the agent infers the reward by observing human behaviour 
+
+## Chapter 2
+1. Epistemic uncertainty: also known as model uncertainty
+2. Aleotoric uncertainty: also known as data uncertainty, irreducible
+3. Random variables can be constant such as the indicator function
+4. The probability density function is the derivative of the cumulative density function
+5. The inverse of the cdf is called the inverse cdf/percent point function (ppt)/quantile function
+6. Unconditional independence means p(X,Y) = p(X)p(Y), while conditional independence means p(X,Y|Z) = p(X|Z)p(Y|Z)
+7. Linearity of expectation: E[aX+b] = aE[x]+b
+8. V[aX+b] = a^2V[X]
+9. Law of iterated expectations/law of total expectation: E[X]=EY[E[X|Y]] i.e. take weighted average of subpopulations
+10. Law of total variance/conditional variance formula: V[X]=EY[V[X|Y]]+VY[E[X|Y]] i.e. the overall variance of a random variable X can be evaluated as the sum of the within-sample and between-sample of X sampled on another random variable Y.
+11. 
