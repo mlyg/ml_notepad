@@ -29,9 +29,11 @@
 3. Random variables can be constant such as the indicator function
 4. The probability density function is the derivative of the cumulative density function
 5. The inverse of the cdf is called the inverse cdf/percent point function (ppt)/quantile function
-6. Unconditional independence means p(X,Y) = p(X)p(Y), while conditional independence means p(X,Y|Z) = p(X|Z)p(Y|Z)
-7. Linearity of expectation: E[aX+b] = aE[x]+b
-8. V[aX+b] = a^2V[X]
-9. Law of iterated expectations/law of total expectation: E[X]=EY[E[X|Y]] i.e. take weighted average of subpopulations
-10. Law of total variance/conditional variance formula: V[X]=EY[V[X|Y]]+VY[E[X|Y]] i.e. the overall variance of a random variable X can be evaluated as the sum of the within-sample and between-sample of X sampled on another random variable Y.
-11. 
+9. Unconditional independence means p(X,Y) = p(X)p(Y), while conditional independence means p(X,Y|Z) = p(X|Z)p(Y|Z)
+10. Linearity of expectation: E[aX+b] = aE[x]+b
+11. V[aX+b] = a^2V[X]
+12. Law of iterated expectations/law of total expectation: E[X]=EY[E[X|Y]] i.e. take weighted average of subpopulations
+13. Law of total variance/conditional variance formula: V[X]=EY[V[X|Y]]+VY[E[X|Y]] i.e. the overall variance of a random variable X can be evaluated as the sum of the within-sample and between-sample of X sampled on another random variable Y.
+14. Bayes' rule is prior distribution (p(H=h)) multiplied by the likelihood (p(Y=y|H=h)) normalised by the marginal likelihood (p(Y=y))
+15. The likelihood is a function since y is fixed, while it is called the observation distribution if y not fixed
+16. Inverse probability: inferring the state of the world from observations of outcomes. Bayes' theorem solves the inverse probability problem (posterior distribution)
