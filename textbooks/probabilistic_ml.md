@@ -39,3 +39,5 @@
 16. Inverse probability: inferring the state of the world from observations of outcomes. Bayes' theorem solves the inverse probability problem (posterior distribution)
 17. The binomial distribution is a generalisation of the Bernoulli distribution for multiple events. The binomial coefficient is the formula for calculating combinations (where order does not matter, in contrast to permutations)
 18. The logit function is the inverse of the sigmoid function, with domain [0,1]
+19. The multinomial distribution generalises the binomial distribution to more than two outcomes, and generalises the categorical distribution to more than one event
+20. The softmax function is the multinomial logit
