@@ -117,3 +117,11 @@ Link: https://arxiv.org/abs/1912.03458
 4. The aggregation of parallel convolution kernels makes output channels shared, with no effect on network width or depth
 5. The **squeeze-and-excite** method is used to compute attention
 6. Optimising dynamic convolutional kernels is difficult
+
+## How Do Vision Transformers Work?
+Link: https://openreview.net/forum?id=D78Go4hVcxO
+1. Constraining the MSA to local windows can help learn strong representations
+2. MSAs improve the predictive performance of CNNs and ViTs predict well-calibrated uncertainty
+3. MSAs flatten the loss landscape leading to improved performance and generalisation, but they allow negative Hessian eigenvalues when trained with little data which leads to non-convexity
+4. MSAs aggregate feature maps while Convs diversify them
+5. MSAs are low pass filters while Convs are high-pass filters
