@@ -35,11 +35,13 @@ Link: https://arxiv.org/abs/1806.03535
 1. NMS can be problematic if the objects of interest are poorly represented by their **axis-aligned bounding boxes**, which can be the case for cell nuclei
 2. Rather than using axis-aligned bounding boxes, StarDist predicts a **star-convex polygon** for every pixel
 3. For each pixel, the distance is regressed to the boundary of the object to which it belongs, along a set of **n predefined radial directions** with equidistant angles
-4. The model predicts for every pixel whether it belongs to an object, and use** NMS to select polygon proposals** from pixels with sufficiently high object probability
+4. The model predicts for every pixel whether it belongs to an object, and use **NMS to select polygon proposals** from pixels with sufficiently high object probability
 5. Object probabilities are defined as the **normalised Euclidean distance** to nearest background pixel
 6. Star-convex polygon distances are computed as the Euclidean distance to the object boundary by following a radial direction k
 7. The polygon distance output layer has the number of channels equal to the number of radial directions, and is optimised with the **mean absolute error** 
 8. Uses greedy NMS to retain polygons in a certain region
+9. Crowded cells cause issues with bounding boxes due to suppression of neighbouring bounding boxes
+10. Predicts two things: object probability (distance map) and radial distances (every point, predict distance to closest boundary along predefined line). If there are 32 radial lines, then 32 distance maps
 
 ## SOLO: Segmenting Objects by Locations
 Link: https://arxiv.org/abs/1912.04488
