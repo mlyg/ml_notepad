@@ -41,3 +41,26 @@
 18. The logit function is the inverse of the sigmoid function, with domain [0,1]
 19. The multinomial distribution generalises the binomial distribution to more than two outcomes, and generalises the categorical distribution to more than one event
 20. The softmax function is the multinomial logit
+21. The term 'temperature' related to the softmax function comes from the Boltzmann distribution which has the same form as the softmax function
+22. Log-sum-exp trick: numerical stability trick to avoid exponentiating large numbers in the softmax formula, and applied to the cross entropy loss by modifying it to accept logits rather than probabilities. LSE works because we can shift the values in the exponent by an arbitrary constant c while still computing the same final value, and if we set c = max{x1...xn} then the largest positively exponentiated term is exp(0) = 1
+23. The precision of a Gaussian is the inverse of the variance
+24. The probit function is the inverse of the cdf of a Gaussian
+25. Homoscedastic regression: variance is fixed and independent of input. Opposite of heteroscedastic regression
+26. The softplus ensures that the resultant output is non-negative
+27. The Gaussian distribution is the most popular distribution in statistics because:
+* two easy to interpret parameters
+* Central limit theorem: good for modelling residual errors i.e. noise
+* makes the least number of assumptions (i.e. maximum entropy) subject to the constraint of a specified mean and variance
+28. The Dirac delta function is what happens if the variance of the Gaussian approaches 0, making an infinitely tall spike
+29. The sifting property of the Dirac delta function is important: Dirac delta function shifted by an amount -x. Multiplying the Dirac delta function by f(y) and integrating, gives the value of f(y) at the x
+30. The Student t-distribution is an alternative to the Gaussian distribution that is robust to outliers. This is because the probability density decays as a polynomial function of the squared distance from the centre, compared to the exponential function in a Gaussian distribution, so there is more probability mass (heavy tails) at the ends. v is the number of degrees of freedom, where higher v makes it approach a Gaussian distribution
+31. The Cauchy/Lorentz distribution is the Student distribution with v = 1. This has very heavy tails compared to the Gaussian
+32. The half Cauchy distribution is folded over on itself so all its probability density are positive real values
+33. The Laplace distribution (also known as the double sided exponential distribution) also has heavy tails
+34. Both the Student t and Laplace distribution are used for robust linear regression
+35. The Beta distribution is constrained to [0,1]. a = b = 1 gives a uniform distribution, a > 1, b > 1 gives unimodal distribution
+36. The Gamma distribution is constrained to x > 0, and defined in terms of the shape (a) and rate (b) parameters. Sometimes scale (1/b) is used.
+37. Special cases of the Gamma distribution:
+* Exponential distribution: shape = 1, describes the times between events in a Poisson process
+* Chi-squared distribution: shape = v/2, rate = 1/2 where v is the degrees of freedom. It is the distribution of the sum of squared Gaussian random variables
+* inverse Gamma distribution 
