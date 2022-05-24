@@ -64,3 +64,7 @@
 * Exponential distribution: shape = 1, describes the times between events in a Poisson process
 * Chi-squared distribution: shape = v/2, rate = 1/2 where v is the degrees of freedom. It is the distribution of the sum of squared Gaussian random variables
 * inverse Gamma distribution 
+38. The Empirical distribution involves using a set of delta functions to approximate the pdf. The cdf is approximated with a series of step functions
+39. A discrete convolution operation involves flipping y, dragging it along and performing element-wise multiplication with x 
+40. Central limit theorem states that the distribution of the sum of n random variables of any distribution converges to the standard normal
+41. Monte Carlo approximation: approximate p(y) by drawing many samples from p(x) and applying f(x) on samples
