@@ -69,3 +69,47 @@
 40. A discrete convolution operation involves flipping y, dragging it along and performing element-wise multiplication with x 
 41. Central limit theorem states that the distribution of the sum of n random variables of any distribution converges to the standard normal
 42. Monte Carlo approximation: approximate p(y) by drawing many samples from p(x) and applying f(x) on samples
+43. Epistemic uncertainty: also known as model uncertainty
+44. Aleotoric uncertainty: also known as data uncertainty, irreducible
+45. Random variables can be constant such as the indicator function
+46. The probability density function is the derivative of the cumulative density function
+47. The inverse of the cdf is called the inverse cdf/percent point function (ppt)/quantile function
+48. Unconditional independence means p(X,Y) = p(X)p(Y), while conditional independence means p(X,Y|Z) = p(X|Z)p(Y|Z)
+49. Linearity of expectation: E[aX+b] = aE[x]+b
+50. V[aX+b] = a^2V[X]
+51. Law of iterated expectations/law of total expectation: E[X]=EY[E[X|Y]] i.e. take weighted average of subpopulations
+52. Law of total variance/conditional variance formula: V[X]=EY[V[X|Y]]+VY[E[X|Y]] i.e. the overall variance of a random variable X can be evaluated as the sum of the within-sample and between-sample of X sampled on another random variable Y.
+53. Bayes' rule is prior distribution (p(H=h)) multiplied by the likelihood (p(Y=y|H=h)) normalised by the marginal likelihood (p(Y=y))
+54. The likelihood is a function since y is fixed, while it is called the observation distribution if y not fixed
+55. Inverse probability: inferring the state of the world from observations of outcomes. Bayes' theorem solves the inverse probability problem (posterior distribution)
+
+## Chapter 3
+1. The covariance measures the degree to which two variables are linearly related
+2. The covariance matrix applies to a single vector, while cross-covariance applies to two vectors
+3. The correlation coefficient measures the degree of linearity, not the slope of the relationship
+4. While independent implies uncorrelated, uncorrelated does not imply independent because correlation measures linear dependence
+5. Simpson’s paradox states that a statistical trend that appears in several different groups of data can disappear or reverse when combined
+6. The multivariate Gaussian is the most common joint probability distribution used for continuous random variables
+7. There are different types of covariance matrices: full (elliptical contour), diagonal (axis-aligned ellipse) and spherical (circular shape), which have different number of free parameters
+8. Mahalanobis distance measures the distance between a point and a distribution. It works by transforming the columns into uncorrelated variables, scaling columns to make variance equal to 1, and finally calculating the Euclidean distance
+9. In terms of level sets, contours of constant (log) probability are equivalent to contours of constant Mahalanobis distance
+10. The key property of an exponential family is that theta (parameters) and x (inputs) interact only via the dot product
+11. The first and second cumulant are equal to the mean and variance
+12. For the exponential family, higher order cumulants can be generated as derivatives of the log partition function
+13. A mixture model involves creating more complex probability models by taking a convex combination of simple distributions
+14. Gaussian mixture models are used in unsupervised clustering 
+15. Convex combination - all coefficients are non-negative and sum to 1
+16. A probabilistic graphical model is a joint probability distribution that uses a graph structure to encode conditional independence assumptions
+17. A Bayesian network refers to a probabilistic graphical model which uses a directed acyclic graph structure
+18. Each node represents a random variable, and each edge represents a direct dependency. Nodes not connected by edges are conditionally independent
+19. The ordered Markov property involves connecting a DAG such that each node is conditionally independent of all its predecessors given its parents
+20. First order Markov condition: the future is conditionally independent on the past given the present
+21. The first order Markov condition is an example of parameter tying, because the state transition matrix is assumed to apply for all time steps (homogenous/stationary/time-invariant) and therefore can model an arbitrary number of variables using a fixed number of parameters
+22. First-order Markov condition can be generalised to M’th order Markov models, by dependence on the M number of previous steps. 
+23. Berkson’s paradox: negative mutual interaction between multiple causes of observations, also known as the explaining away effect
+24. Inference in statistics refers to quantifying uncertainty about an unknown quantity estimated from a finite sample of data (different to deep learning use of inference for prediction)
+25. Maximum likelihood estimation (MLE): pick parameters that assign the highest probability to the training data i.e. argmax of the probability of observing the data given parameters
+26. Justification for MLE
+* MLE is a special case of MAP where the prior is a uniform distribution
+* The resulting predictive distribution is as close as possible to the empirical distribution of the data
+27. The Kullback Leibler divergence measures the similarity between probability distributions p and q
