@@ -112,4 +112,4 @@
 26. Justification for MLE
 * MLE is a special case of MAP where the prior is a uniform distribution
 * The resulting predictive distribution is as close as possible to the empirical distribution of the data
-27. The Kullback Leibler divergence measures the similarity between probability distributions p and q
+27. The Kullback-Leibler divergence measures the similarity between probability distributions p and q. The '||' have no special meaning, except to emphasise that the order is important
