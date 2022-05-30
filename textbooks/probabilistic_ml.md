@@ -113,3 +113,8 @@
 * MLE is a special case of MAP where the prior is a uniform distribution
 * The resulting predictive distribution is as close as possible to the empirical distribution of the data
 27. The Kullback-Leibler divergence measures the similarity between probability distributions p and q. The '||' have no special meaning, except to emphasise that the order is important
+28. The method of moments (MOM) is a simpler alternative to MLE, which equate the theoretical moments of the distribution to the empirical moments, and solve the resulting simultaneous equations
+29. MOM is theoretically inferior to MLE because it may not use all the data as efficiently, and can sometimes produce inconsistent results
+30. Empirical risk minimisation: the term empirical means we minimise our error based on a sample from the whole input domain, in contrast to the true error which uses the whole input domain
+31. Overfitting is where the empirical risk is minimised but the true error increases
+32. ERM is useful because we can produce an upper bound on the error
