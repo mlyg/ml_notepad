@@ -118,3 +118,15 @@
 30. Empirical risk minimisation: the term empirical means we minimise our error based on a sample from the whole input domain, in contrast to the true error which uses the whole input domain
 31. Overfitting is where the empirical risk is minimised but the true error increases
 32. ERM is useful because we can produce an upper bound on the error
+33. Exponentially weighted moving average has a bias because the estimate starts at mean = 0. This can be corrected by scaling by mean / 1 - beta^
+34.  Regularisation adds a complexity penalty weighted by the regularisation parameter lambda
+35. The inverse Wishart distribution is a probability distribution defined on real-valued positive-definite matrices. It is used as the conjugate prior for the covariance matrix of a multivariate normal distribution
+36. One standard error rule: often we pick the model with the lowest CV error, but does not take into account uncertainty. Uncertainty involves taking the standard error of the out-of-sample error (mean of k-folds). The rule involves choosing the model with the lowest complexity within one standard error of the best-performing model’s CV
+37. Bayes error is the error of the optimal predictor (the true model) due to inherent noise
+38. Bayes model averaging: uses predictions from all possible models weighted by their posterior distribution
+39. Conjugate priors: a prior for a likelihood function if the posterior is in the same parameterised family as the prior
+40. Laplace’s rule of succession: rather than viewing p = s / n where s is the number of successes, use a more conservative estimate of p = n+1/n+2
+41. Posterior predictive distribution: the distribution of future data given a posterior distribution
+42. Marginal likelihood/evidence: useful for model comparisons, considering the evidence for the model across all possible parameter settings
+43. Mixture of conjugate priors: can be used to better approximate the actual non-conjugate prior than a single conjugate prior, yet allows for a closed form approximation to the posterior
+44. The Dirichlet distribution is a multivariate generalisation of the beta distribution
