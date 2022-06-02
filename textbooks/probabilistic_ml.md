@@ -130,3 +130,9 @@
 42. Marginal likelihood/evidence: useful for model comparisons, considering the evidence for the model across all possible parameter settings
 43. Mixture of conjugate priors: can be used to better approximate the actual non-conjugate prior than a single conjugate prior, yet allows for a closed form approximation to the posterior
 44. The Dirichlet distribution is a multivariate generalisation of the beta distribution
+45. Hierarchical prior: prior for a prior i.e. a hyperprior/hyperparameter
+46. Empirical Bayes: two step process where you first estimate the overall distribution of the data, and then use that distribution as a prior for estimating each average
+47. Credible interval: Bayesian setting of confidence intervals, where parameter is not fixed. It is an interval such that the probability that the parameter lies in the interval is at least 1 - alpha. Requires using the inverse cdf, which can be hard for non-conjugate posteriors - instead using MC sampling, rank samples and then select samples at positions  alpha / S where S is the number of samples
+48. Central interval is where the credible interval is centred on the estimate. A problem with central intervals is that there might be points with a higher probability outside the central interval 
+49. Highest posterior density: to overcome the above problem, take a horizontal line and shift it up until the area above it but under the density is 1 - alpha
+50. Plugin estimate: estimate a function g(theta) by using g(theta-hat) where theta-hat is an estimate of theta
