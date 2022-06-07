@@ -1,10 +1,10 @@
 
 ## Chapter 1
-1. Probabilistic ML means treating all unknown quantities as random variables
-2. A probabilistic approach is the optimal approach for decision making under uncertainty
-3. Design matrix: the N x D matrix containing input features. Big data means N >> D. Wide data means D >> N
-4. Featurisation: the process of converting a variable sized input into a fixed-size feature representation
-5. Empirical risk minimisation: finding the parameters of a model that minimises the empirical risk (average loss of the predictors on the training set)
+1. Probabilistic ML means treating all unknown quantities as **random variables,** with a probability distrubition that specifies the **weighted set of possible values**
+2. A probabilistic approach is the optimal approach for **decision making under uncertainty**
+3. **Design matrix**: the N x D matrix containing input features. Big data means N >> D. Wide data means D >> N
+4. **Featurisation**: the process of converting a variable sized input into a fixed-size feature representation
+5. **Empirical risk minimisation**: finding the parameters of a model that minimises the **empirical risk** (average loss of the predictors on the training set)
 6. The empirical risk is equal to the misclassification loss when a zero-one loss is used
 7. Epistemic/model uncertainty: lack of knowledge of input-output mapping
 8. Aleotoric/data uncertainty: intrinsic/irreducible stochasticity in the mapping
