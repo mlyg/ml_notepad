@@ -35,12 +35,13 @@
 ## Chapter 2
 1. Epistemic uncertainty: also known as model uncertainty
 2. Aleotoric uncertainty: also known as data uncertainty, irreducible
-3. Random variables can be constant such as the indicator function
-4. The probability density function is the derivative of the cumulative density function
-5. The inverse of the cdf is called the inverse cdf/percent point function (ppt)/quantile function
-9. Unconditional independence means p(X,Y) = p(X)p(Y), while conditional independence means p(X,Y|Z) = p(X|Z)p(Y|Z)
-10. Independence variables: P(A|B) = P(A). 
-11. Linearity of expectation: E[aX+b] = aE[x]+b
+3. The main hypothesis in active learning is that if a learning algorithm can choose the data it wants to learn from, it can perform better than traditional methods with substantially less data for training.
+4. Random variables can be constant such as the indicator function
+5. The probability density function is the derivative of the cumulative density function
+6. The inverse of the cdf is called the inverse cdf/percent point function (ppt)/quantile function
+7. Unconditional independence means p(X,Y) = p(X)p(Y), while conditional independence means p(X,Y|Z) = p(X|Z)p(Y|Z)
+8. Independence variables: P(A|B) = P(A). 
+9. Linearity of expectation: E[aX+b] = aE[x]+b
 12. V[aX+b] = a^2V[X]
 13. Law of iterated expectations/law of total expectation: E[X]=EY[E[X|Y]] i.e. take weighted average of subpopulations
 14. Law of total variance/conditional variance formula: V[X]=EY[V[X|Y]]+VY[E[X|Y]] i.e. the overall variance of a random variable X can be evaluated as the sum of the within-sample and between-sample of X sampled on another random variable Y.
