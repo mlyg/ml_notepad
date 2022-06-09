@@ -5,23 +5,32 @@
 3. **Design matrix**: the N x D matrix containing input features. Big data means N >> D. Wide data means D >> N
 4. **Featurisation**: the process of converting a variable sized input into a fixed-size feature representation
 5. **Empirical risk minimisation**: finding the parameters of a model that minimises the **empirical risk** (average loss of the predictors on the training set)
-6. The empirical risk is equal to the misclassification loss when a zero-one loss is used
-7. Epistemic/model uncertainty: lack of knowledge of input-output mapping
-8. Aleotoric/data uncertainty: intrinsic/irreducible stochasticity in the mapping
+6. The empirical risk is equal to the misclassification loss when a **zero-one loss** is used
+7. **Epistemic/model uncertainty**: lack of knowledge of input-output mapping
+8. **Aleotoric/data uncertainty**: intrinsic/irreducible stochasticity in the mapping
 9. An affine function is a linear function with a bias term
-10. The maximum likelihood estimate are the parameters which minimise the negative log likelihood
-11. Generalisation gap is the difference between the population risk and empirical risk. We approximate the population risk using the test risk
-12. In a probabilistic framework, supervised learning fits a conditional model which specifies a distribution over the inputs, while unsupervised learning fits an unconditional model which can generate new data
-13. Factor analysis is similar to linear regression, but only observe the outputs (input features) and not the inputs (latent factors)
-14. Self-supervised learning can be used to learn useful features of the data while avoiding infering true latent factors
-15. The unconditional negative log likelihood can be used to evaluate unsupervised learning algorithms - treats unsupervised learning as density estimation, and a good model should not be surprised by 'actual' data samples
-16. The better performance of CNNs than humans represents better fine-grained classification, rather than better at vision than humans
-17. Feature crosses can capture interaction effects which one-hot encoding cannot
-18. Missing data occurs in three ways:
-* Missing completely at random (MCAR): missingness does not depend on hidden or observable features i.e. missingness not related to features
-* Missing at random (MAR): missingness does not depend on hidden features, but may depend on observable features i.e. missingness can be explained by features we can observe
-* Not missing at random (NMAR: missingmess may depend on either hidden or observable features - need to model missing data as may be informative
-19. Alignment problem: potential discrepancy between what we ask the algorithm to optimise and what we actually want them to do. One proposed solution is to use inverse reinforcement learning where the agent infers the reward by observing human behaviour 
+10. L(theta|O) = P(O|theta). The likelihood function is conditioned on the observed data and is a function of the unknown parameters theta.
+11. The **maximum likelihood estimate** are the parameters which minimise the negative log likelihood
+12. The **NLL is proportional to the MSE**, meaning computing the MLE minimises the MSE
+13. A **linear model** induces an MSE loss function that has a **unique global optimum**
+15. **Generalisation gap** is the difference between the **population risk** and **empirical risk.** We approximate the population risk using the test risk
+16. A **latent variable** cannot be observed, but can be detected by their effect on the variation of observed data. Specific values cannot be obtained, but their **distribution** can be **estimated**
+18. In a probabilistic framework, supervised learning fits a conditional model which specifies a distribution over the inputs, while unsupervised learning fits an unconditional model which can generate new data
+19. **Factor analysis** is similar to linear regression, but only observe the outputs (input features) and not the inputs (latent factors)
+20. Self-supervised learning can be used to learn useful features of the data while avoiding infering true latent factors
+21. The **unconditional negative log likelihood** can be used to evaluate unsupervised learning algorithms - treats unsupervised learning as density estimation, and a good model should not be surprised by 'actual' data samples
+22. A **probability density function** (pdf) calculates the probability for a specific outcome of a random variable
+23. **Density estimation** involves inferring the probability distribution based on a sample of data 
+24. **Kernel density estimation (KDE)** is the most common method of nonparametric approach for estimating a pdf for a continuous random variable. Has two parameters: **smoothing parameter/bandwidth** which controls the window of samples used to estimate the probability for a new point, and **basis function** (kernel) which controls the contribution of samples in the dataset toward estimating the probability of a new point
+25. The better performance of CNNs than humans represents **better fine-grained classification**, rather than better at vision than humans
+26. **Feature crosses** can capture interaction effects which one-hot encoding cannot
+27. **Term frequency inverse document frequency (TF-IDF)**: reduces impact of words that occur many times across all documents. Multiplies how frequent a word appears in a document (term frequency) by the inverse of how frequent the word appears across all documents (inverse document frequency)
+28. **Byte-pair encoding**: form of data compression that creates new symbols to represent common substrings, avoiding the need to use the <unk> token for unknown words. Common words are represented as single tokens, while rare words are broken down into two or more substrings
+29. Missing data occurs in three ways:
+* **Missing completely at random (MCAR)**: missingness does not depend on hidden or observable features i.e. missingness not related to features
+* **Missing at random (MAR)**: missingness does not depend on hidden features, but may depend on observable features i.e. missingness can be explained by features we can observe
+* **Not missing at random (NMAR)**: missingmess may depend on either hidden or observable features - need to model missing data as may be informative
+30. **Alignment problem**: potential discrepancy between what we ask the algorithm to optimise and what we actually want them to do. One proposed solution is to use inverse reinforcement learning where the agent infers the reward by observing human behaviour 
 
 ## Chapter 2
 1. Epistemic uncertainty: also known as model uncertainty
