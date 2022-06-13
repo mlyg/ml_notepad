@@ -13,24 +13,24 @@
 11. The **maximum likelihood estimate** are the parameters which minimise the negative log likelihood
 12. The **NLL is proportional to the MSE**, meaning computing the MLE minimises the MSE
 13. A **linear model** induces an MSE loss function that has a **unique global optimum**
-15. **Generalisation gap** is the difference between the **population risk** and **empirical risk.** We approximate the population risk using the test risk
-16. A **latent variable** cannot be observed, but can be detected by their effect on the variation of observed data. Specific values cannot be obtained, but their **distribution** can be **estimated**
-18. In a probabilistic framework, supervised learning fits a conditional model which specifies a distribution over the inputs, while unsupervised learning fits an unconditional model which can generate new data
-19. **Factor analysis** is similar to linear regression, but only observe the outputs (input features) and not the inputs (latent factors)
-20. Self-supervised learning can be used to learn useful features of the data while avoiding infering true latent factors
-21. The **unconditional negative log likelihood** can be used to evaluate unsupervised learning algorithms - treats unsupervised learning as density estimation, and a good model should not be surprised by 'actual' data samples
-22. A **probability density function** (pdf) calculates the probability for a specific outcome of a random variable
-23. **Density estimation** involves inferring the probability distribution based on a sample of data 
-24. **Kernel density estimation (KDE)** is the most common method of nonparametric approach for estimating a pdf for a continuous random variable. Has two parameters: **smoothing parameter/bandwidth** which controls the window of samples used to estimate the probability for a new point, and **basis function** (kernel) which controls the contribution of samples in the dataset toward estimating the probability of a new point
-25. The better performance of CNNs than humans represents **better fine-grained classification**, rather than better at vision than humans
-26. **Feature crosses** can capture interaction effects which one-hot encoding cannot
-27. **Term frequency inverse document frequency (TF-IDF)**: reduces impact of words that occur many times across all documents. Multiplies how frequent a word appears in a document (term frequency) by the inverse of how frequent the word appears across all documents (inverse document frequency)
-28. **Byte-pair encoding**: form of data compression that creates new symbols to represent common substrings, avoiding the need to use the <unk> token for unknown words. Common words are represented as single tokens, while rare words are broken down into two or more substrings
-29. Missing data occurs in three ways:
+14. **Generalisation gap** is the difference between the **population risk** and **empirical risk.** We approximate the population risk using the test risk
+15. A **latent variable** cannot be observed, but can be detected by their effect on the variation of observed data. Specific values cannot be obtained, but their **distribution** can be **estimated**
+16. In a probabilistic framework, supervised learning fits a conditional model which specifies a distribution over the inputs, while unsupervised learning fits an unconditional model which can generate new data
+17. **Factor analysis** is similar to linear regression, but only observe the outputs (input features) and not the inputs (latent factors)
+18. Self-supervised learning can be used to learn useful features of the data while avoiding infering true latent factors
+19. The **unconditional negative log likelihood** can be used to evaluate unsupervised learning algorithms - treats unsupervised learning as density estimation, and a good model should not be surprised by 'actual' data samples
+20. A **probability density function** (pdf) calculates the probability for a specific outcome of a random variable
+21. **Density estimation** involves inferring the probability distribution based on a sample of data 
+22. **Kernel density estimation (KDE)** is the most common method of nonparametric approach for estimating a pdf for a continuous random variable. Has two parameters: **smoothing parameter/bandwidth** which controls the window of samples used to estimate the probability for a new point, and **basis function** (kernel) which controls the contribution of samples in the dataset toward estimating the probability of a new point
+23. The better performance of CNNs than humans represents **better fine-grained classification**, rather than better at vision than humans
+24. **Feature crosses** can capture interaction effects which one-hot encoding cannot
+25. **Term frequency inverse document frequency (TF-IDF)**: reduces impact of words that occur many times across all documents. Multiplies how frequent a word appears in a document (term frequency) by the inverse of how frequent the word appears across all documents (inverse document frequency)
+26. **Byte-pair encoding**: form of data compression that creates new symbols to represent common substrings, avoiding the need to use the (unk) token for unknown words. Common words are represented as single tokens, while rare words are broken down into two or more substrings
+27. Missing data occurs in three ways:
 * **Missing completely at random (MCAR)**: missingness does not depend on hidden or observable features i.e. missingness not related to features
 * **Missing at random (MAR)**: missingness does not depend on hidden features, but may depend on observable features i.e. missingness can be explained by features we can observe
 * **Not missing at random (NMAR)**: missingmess may depend on either hidden or observable features - need to model missing data as may be informative
-30. **Alignment problem**: potential discrepancy between what we ask the algorithm to optimise and what we actually want them to do. One proposed solution is to use inverse reinforcement learning where the agent infers the reward by observing human behaviour 
+28. **Alignment problem**: potential discrepancy between what we ask the algorithm to optimise and what we actually want them to do. One proposed solution is to use inverse reinforcement learning where the agent infers the reward by observing human behaviour 
 
 ## Chapter 2
 1. **Epistemic uncertainty**: also known as model uncertainty
@@ -67,32 +67,32 @@
 31. The **Student t-distribution** is an alternative to the Gaussian distribution that is robust to outliers. This is because the probability density **decays as a polynomial function of the squared distance from the centre**, compared to the exponential function in a Gaussian distribution, so there is more probability mass (heavy tails) at the ends. **v is the number of degrees of freedom**, where higher v makes it approach a Gaussian distribution
 32. The **Cauchy/Lorentz distribution** is the Student distribution with v = 1. This has **very heavy tails** compared to the Gaussian
 33. **Heavy-tailed distributions** are probability distributions whose tails are not exponentially bounded
-34.The half Cauchy distribution is folded over on itself so all its probability density are positive real values
-34. The Laplace distribution (also known as the double sided exponential distribution) also has heavy tails
-35. Both the Student t and Laplace distribution are used for robust linear regression
-36. The Beta distribution is constrained to [0,1]. a = b = 1 gives a uniform distribution, a > 1, b > 1 gives unimodal distribution
-37. The Gamma distribution is constrained to x > 0, and defined in terms of the shape (a) and rate (b) parameters. Sometimes scale (1/b) is used.
-38. Special cases of the Gamma distribution:
+34. The **half Cauchy distribution** is folded over on itself so all its probability density are positive real values
+35. The **Laplace distribution** (also known as the double sided exponential distribution) also has heavy tails
+36. Both the Student t and Laplace distribution are used for **robust linear regression**
+37. The **Beta distribution** is constrained to [0,1]. a = b = 1 gives a uniform distribution, a > 1, b > 1 gives unimodal distribution
+38. The Gamma distribution is constrained to x > 0, and defined in terms of the shape (a) and rate (b) parameters. Sometimes scale (1/b) is used.
+39. Special cases of the Gamma distribution:
 * Exponential distribution: shape = 1, describes the times between events in a Poisson process
 * Chi-squared distribution: shape = v/2, rate = 1/2 where v is the degrees of freedom. It is the distribution of the sum of squared Gaussian random variables
 * inverse Gamma distribution 
-39. The Empirical distribution involves using a set of delta functions to approximate the pdf. The cdf is approximated with a series of step functions
-40. A discrete convolution operation involves flipping y, dragging it along and performing element-wise multiplication with x 
-41. Central limit theorem states that the distribution of the sum of n random variables of any distribution converges to the standard normal
-42. Monte Carlo approximation: approximate p(y) by drawing many samples from p(x) and applying f(x) on samples
-43. Epistemic uncertainty: also known as model uncertainty
-44. Aleotoric uncertainty: also known as data uncertainty, irreducible
-45. Random variables can be constant such as the indicator function
-46. The probability density function is the derivative of the cumulative density function
-47. The inverse of the cdf is called the inverse cdf/percent point function (ppt)/quantile function
-48. Unconditional independence means p(X,Y) = p(X)p(Y), while conditional independence means p(X,Y|Z) = p(X|Z)p(Y|Z)
-49. Linearity of expectation: E[aX+b] = aE[x]+b
-50. V[aX+b] = a^2V[X]
-51. Law of iterated expectations/law of total expectation: E[X]=EY[E[X|Y]] i.e. take weighted average of subpopulations
-52. Law of total variance/conditional variance formula: V[X]=EY[V[X|Y]]+VY[E[X|Y]] i.e. the overall variance of a random variable X can be evaluated as the sum of the within-sample and between-sample of X sampled on another random variable Y.
-53. Bayes' rule is prior distribution (p(H=h)) multiplied by the likelihood (p(Y=y|H=h)) normalised by the marginal likelihood (p(Y=y))
-54. The likelihood is a function since y is fixed, while it is called the observation distribution if y not fixed
-55. Inverse probability: inferring the state of the world from observations of outcomes. Bayes' theorem solves the inverse probability problem (posterior distribution)
+40. The Empirical distribution involves using a set of delta functions to approximate the pdf. The cdf is approximated with a series of step functions
+41. A discrete convolution operation involves flipping y, dragging it along and performing element-wise multiplication with x 
+42. Central limit theorem states that the distribution of the sum of n random variables of any distribution converges to the standard normal
+43. Monte Carlo approximation: approximate p(y) by drawing many samples from p(x) and applying f(x) on samples
+44. Epistemic uncertainty: also known as model uncertainty
+45. Aleotoric uncertainty: also known as data uncertainty, irreducible
+46. Random variables can be constant such as the indicator function
+47. The probability density function is the derivative of the cumulative density function
+48. The inverse of the cdf is called the inverse cdf/percent point function (ppt)/quantile function
+49. Unconditional independence means p(X,Y) = p(X)p(Y), while conditional independence means p(X,Y|Z) = p(X|Z)p(Y|Z)
+50. Linearity of expectation: E[aX+b] = aE[x]+b
+51. V[aX+b] = a^2V[X]
+52. Law of iterated expectations/law of total expectation: E[X]=EY[E[X|Y]] i.e. take weighted average of subpopulations
+53. Law of total variance/conditional variance formula: V[X]=EY[V[X|Y]]+VY[E[X|Y]] i.e. the overall variance of a random variable X can be evaluated as the sum of the within-sample and between-sample of X sampled on another random variable Y.
+54. Bayes' rule is prior distribution (p(H=h)) multiplied by the likelihood (p(Y=y|H=h)) normalised by the marginal likelihood (p(Y=y))
+55. The likelihood is a function since y is fixed, while it is called the observation distribution if y not fixed
+56. Inverse probability: inferring the state of the world from observations of outcomes. Bayes' theorem solves the inverse probability problem (posterior distribution)
 
 ## Chapter 3
 1. The covariance measures the degree to which two variables are linearly related
