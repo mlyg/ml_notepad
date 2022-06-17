@@ -70,29 +70,31 @@
 34. The **half Cauchy distribution** is folded over on itself so all its probability density are positive real values
 35. The **Laplace distribution** (also known as the double sided exponential distribution) also has heavy tails
 36. Both the Student t and Laplace distribution are used for **robust linear regression**
-37. The **Beta distribution** is constrained to [0,1]. a = b = 1 gives a uniform distribution, a > 1, b > 1 gives unimodal distribution
-38. The Gamma distribution is constrained to x > 0, and defined in terms of the shape (a) and rate (b) parameters. Sometimes scale (1/b) is used.
-39. Special cases of the Gamma distribution:
-* Exponential distribution: shape = 1, describes the times between events in a Poisson process
-* Chi-squared distribution: shape = v/2, rate = 1/2 where v is the degrees of freedom. It is the distribution of the sum of squared Gaussian random variables
-* inverse Gamma distribution 
-40. The Empirical distribution involves using a set of delta functions to approximate the pdf. The cdf is approximated with a series of step functions
-41. A discrete convolution operation involves flipping y, dragging it along and performing element-wise multiplication with x 
-42. Central limit theorem states that the distribution of the sum of n random variables of any distribution converges to the standard normal
-43. Monte Carlo approximation: approximate p(y) by drawing many samples from p(x) and applying f(x) on samples
-44. Epistemic uncertainty: also known as model uncertainty
-45. Aleotoric uncertainty: also known as data uncertainty, irreducible
-46. Random variables can be constant such as the indicator function
-47. The probability density function is the derivative of the cumulative density function
-48. The inverse of the cdf is called the inverse cdf/percent point function (ppt)/quantile function
-49. Unconditional independence means p(X,Y) = p(X)p(Y), while conditional independence means p(X,Y|Z) = p(X|Z)p(Y|Z)
-50. Linearity of expectation: E[aX+b] = aE[x]+b
-51. V[aX+b] = a^2V[X]
-52. Law of iterated expectations/law of total expectation: E[X]=EY[E[X|Y]] i.e. take weighted average of subpopulations
-53. Law of total variance/conditional variance formula: V[X]=EY[V[X|Y]]+VY[E[X|Y]] i.e. the overall variance of a random variable X can be evaluated as the sum of the within-sample and between-sample of X sampled on another random variable Y.
-54. Bayes' rule is prior distribution (p(H=h)) multiplied by the likelihood (p(Y=y|H=h)) normalised by the marginal likelihood (p(Y=y))
-55. The likelihood is a function since y is fixed, while it is called the observation distribution if y not fixed
-56. Inverse probability: inferring the state of the world from observations of outcomes. Bayes' theorem solves the inverse probability problem (posterior distribution)
+37. The Gamma function is a generalisation of the factorial function
+38. The **Beta distribution** is constrained to [0,1]. a = b = 1 gives a uniform distribution, a > 1, b > 1 gives unimodal distribution
+39. The **Gamma distribution** is constrained to x > 0, and defined in terms of the **shape (a)** and **rate (b)** parameters. Sometimes **scale (1/b)** is used.
+40. **Special cases of the Gamma distribution:**
+* **Exponential distribution:** shape = 1, describes the times between events in a Poisson process
+* **Chi-squared distribution:** shape = v/2, rate = 1/2 where v is the degrees of freedom. It is the distribution of the sum of squared Gaussian random variables
+* **inverse Gamma distribution **
+41. The Empirical distribution involves using a set of delta functions to approximate the pdf. The cdf is approximated with a series of step functions
+42. The **Laplace transform** generalises the Fourier trasnform by decomposing the input into both sinusoidal and exponential components. It is useful because it converts calculus problems into algebra, by converting the differential operator into multiplication
+43. A discrete convolution operation involves flipping y, dragging it along and performing element-wise multiplication with x 
+44. Central limit theorem states that the distribution of the sum of n random variables of any distribution converges to the standard normal
+45. Monte Carlo approximation: approximate p(y) by drawing many samples from p(x) and applying f(x) on samples
+46. Epistemic uncertainty: also known as model uncertainty
+47. Aleotoric uncertainty: also known as data uncertainty, irreducible
+48. Random variables can be constant such as the indicator function
+49. The probability density function is the derivative of the cumulative density function
+50. The inverse of the cdf is called the inverse cdf/percent point function (ppt)/quantile function
+51. Unconditional independence means p(X,Y) = p(X)p(Y), while conditional independence means p(X,Y|Z) = p(X|Z)p(Y|Z)
+52. Linearity of expectation: E[aX+b] = aE[x]+b
+53. V[aX+b] = a^2V[X]
+54. Law of iterated expectations/law of total expectation: E[X]=EY[E[X|Y]] i.e. take weighted average of subpopulations
+55. Law of total variance/conditional variance formula: V[X]=EY[V[X|Y]]+VY[E[X|Y]] i.e. the overall variance of a random variable X can be evaluated as the sum of the within-sample and between-sample of X sampled on another random variable Y.
+56. Bayes' rule is prior distribution (p(H=h)) multiplied by the likelihood (p(Y=y|H=h)) normalised by the marginal likelihood (p(Y=y))
+57. The likelihood is a function since y is fixed, while it is called the observation distribution if y not fixed
+58. Inverse probability: inferring the state of the world from observations of outcomes. Bayes' theorem solves the inverse probability problem (posterior distribution)
 
 ## Chapter 3
 1. The covariance measures the degree to which two variables are linearly related
